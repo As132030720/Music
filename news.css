@@ -56,23 +56,22 @@
 /* 🎵 標題區 */
 .title {
     height: 35vh;
-    background: url("image/instruments.jpg") center/cover no-repeat;
+    background: url("image/instruments.jpg") right/cover no-repeat;
     margin-top: 50px; /* 避開固定導覽列 */
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* 靠右 */
-    text-align: right;
+    justify-content: flex-end; /* 整個容器靠右 */
     padding-right: 50px; /* 與右邊距離 */
 }
 
-.title h1{
-    color:white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position:absolute;
-    right: 60px;
-    top: 75px;
-    line-height: 80px;
+.title h1 {
+    color: white;
     font-size: 60px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: rgba(95, 71, 58, 0.4);
+    padding: 10px 30px;
+    border-radius: 15px;
+    text-align: right; /* 文字靠右 */
 }
 
 /* 🎵 主內容 */
@@ -83,7 +82,7 @@ main {
 
 /* 🎵 新聞列表 */
 .news-list {
-    background-color: #f4e8d5; /* 與原網頁背景一致 */
+    background-color: #f4e8d5; /* 與原始網頁背景同色 */
     border: 3px solid #5f473a;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(95, 71, 58, 0.2);
@@ -182,4 +181,3 @@ footer {
         font-size: 12px;
     }
 }
-
