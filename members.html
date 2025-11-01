@@ -119,48 +119,6 @@ main {
     background-color: rgba(255,255,255,0.15);
 }
 
-/* ---------- 擅長樂器 + 課程 ---------- */
-.instrument-block {
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-    align-items:center;
-    transition: all 0.3s;
-}
-.instrument-block:hover {
-    background-color: rgba(255,255,255,0.05);
-    border-radius:15px;
-    padding:10px;
-}
-
-.checkbox-group {
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-.checkbox-group label {
-    color:#eee;
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    font-size:16px;
-    cursor:pointer;
-    letter-spacing:0.5px;
-    padding:6px 12px;
-    border-radius:12px;
-    transition: all 0.3s;
-}
-.checkbox-group label:hover {
-    background-color: #c3b193;
-    color:#5f473a;
-    transform: scale(1.1);
-}
-.checkbox-group input[type="checkbox"] {
-    width:22px; height:22px;
-    accent-color:#c3b193;
-}
-
 /* ---------- Button ---------- */
 .member-form button {
     width: 40%;
@@ -258,20 +216,19 @@ footer {
             <input type="email" placeholder="電子郵件">
             <input type="text" placeholder="電話">
 
-            <!-- 擅長樂器 + 初中高課程 -->
-            <div class="instrument-block">
-                <select>
-                    <option value="">擅長樂器</option>
-                    <option value="piano">鋼琴</option>
-                    <option value="violin">小提琴</option>
-                    <option value="guitar">吉他</option>
-                </select>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="course" value="beginner"> 初級課程</label>
-                    <label><input type="checkbox" name="course" value="intermediate"> 中級課程</label>
-                    <label><input type="checkbox" name="course" value="advanced"> 高級課程</label>
-                </div>
-            </div>
+            <!-- 單選框：擅長樂器 + 課程 -->
+            <select id="instrument-select">
+                <option value="">擅長樂器 / 課程</option>
+                <option value="piano_beginner">鋼琴 - 初級課程</option>
+                <option value="piano_intermediate">鋼琴 - 中級課程</option>
+                <option value="piano_advanced">鋼琴 - 高級課程</option>
+                <option value="violin_beginner">小提琴 - 初級課程</option>
+                <option value="violin_intermediate">小提琴 - 中級課程</option>
+                <option value="violin_advanced">小提琴 - 高級課程</option>
+                <option value="guitar_beginner">吉他 - 初級課程</option>
+                <option value="guitar_intermediate">吉他 - 中級課程</option>
+                <option value="guitar_advanced">吉他 - 高級課程</option>
+            </select>
 
             <textarea placeholder="備註" rows="3"></textarea>
             <button type="submit">提交</button>
@@ -297,7 +254,7 @@ function spawnNote(x, y){
     setTimeout(()=> note.remove(), 1500);
 }
 form.addEventListener('mousemove', e => spawnNote(e.offsetX, e.offsetY));
-const inputs = form.querySelectorAll('input, select, textarea, .checkbox-group label');
+const inputs = form.querySelectorAll('input, select, textarea');
 inputs.forEach(input=>{
     input.addEventListener('mouseenter', e=>{
         const rect = input.getBoundingClientRect();
