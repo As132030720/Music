@@ -69,7 +69,7 @@ main {
 /* ---------- Member Form ---------- */
 .member-form {
     position: relative;
-    width: 450px;
+    width: 480px;
     padding: 50px 40px;
     background-color: rgba(95,71,58,0.95);
     border-radius: 25px;
@@ -120,21 +120,34 @@ main {
     background-color: rgba(255,255,255,0.15);
 }
 
-/* ---------- Checkbox ---------- */
-.member-form label {
+/* ---------- Checkbox / Course ---------- */
+.checkbox-group {
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+.checkbox-group label {
     color:#eee;
     display:inline-flex;
     align-items:center;
-    gap:8px;
+    gap:6px;
     font-size:16px;
     cursor:pointer;
     letter-spacing:0.5px;
+    padding:6px 12px;
+    border-radius:12px;
+    transition: all 0.3s;
 }
-.member-form input[type="checkbox"] {
+.checkbox-group label:hover {
+    background-color: #c3b193;
+    color:#5f473a;
+    transform: scale(1.1);
+}
+.checkbox-group input[type="checkbox"] {
     width:22px; height:22px;
     accent-color:#c3b193;
 }
-.checkbox-group { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
 
 /* ---------- Button ---------- */
 .member-form button {
@@ -233,7 +246,7 @@ footer {
             <input type="email" placeholder="電子郵件">
             <input type="text" placeholder="電話">
             <select>
-                <option value="">喜愛樂器</option>
+                <option value="">擅長樂器</option>
                 <option value="piano">鋼琴</option>
                 <option value="violin">小提琴</option>
                 <option value="guitar">吉他</option>
@@ -267,7 +280,7 @@ function spawnNote(x, y){
     setTimeout(()=> note.remove(), 1500);
 }
 form.addEventListener('mousemove', e => spawnNote(e.offsetX, e.offsetY));
-const inputs = form.querySelectorAll('input, select, textarea');
+const inputs = form.querySelectorAll('input, select, textarea, .checkbox-group label');
 inputs.forEach(input=>{
     input.addEventListener('mouseenter', e=>{
         const rect = input.getBoundingClientRect();
