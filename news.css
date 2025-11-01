@@ -61,8 +61,9 @@
     background-position: center;
     margin-top: 45px; /* 避免被固定導覽列遮住 */
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* 標題靠右 */
     align-items: center;
+    padding-right: 10vw; /* 距右邊距 */
 }
 
 .title h1 {
@@ -71,6 +72,7 @@
     font-size: 60px;
     text-align: right;
 }
+
 
 /* 主要內容區 */
 main {
@@ -128,5 +130,6 @@ hr {
         font-size: 40px;
     }
 }
+
 
 
