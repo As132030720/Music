@@ -1,123 +1,83 @@
 * {
     padding:0;
     margin:0;
-    box-sizing: border-box;
-    font-family: "Noto Sans TC", sans-serif;
 }
-
-/* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height:60px; /* 提高高度，文字完整顯示 */
+    height:45px;
     width:100%;
     position: fixed;
-    top:0;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding: 0 5vw;
 }
-
 .index a.logo {
     color:white;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bolder;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
 }
 .index a.logo:hover {
     color:#f4e8d5;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
+    text-decoration: none;
 }
-
 .index ul {
-    margin-left: auto;
-    display: flex;
-    list-style: none;
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:45px;
 }
 .index li {
-    margin-left: 3vw;    
+    display:inline;
+    margin-right:4vw;    
 }
 .index ul a {
     color:white;
     text-decoration: none;
-    font-size: 16px;
 }
 .index ul a:hover {
     text-decoration: underline;
 }
-
-/* 🎵 標題區 */
 .title{
     height: 30vh;
     background-image: url("image/instruments.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     background-position: center;
-    position: relative;
-    margin-top: 60px; /* 避開固定導覽列 */
 }
-
 .title h1{
-    color: white;
+    color:white;
     text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position: absolute;
+    position:absolute;
     right: 60px;
     top: 75px;
     line-height: 80px;
     font-size: 60px;
 }
-
-/* 🎵 主內容 */
-main {
+main{
     background-color: #f4e8d5;
-    padding: 40px 200px;
+    padding: 10px 200px;
+}
+.news-list{
+    border-color: #5f473a;
+    border: 3px;
     line-height: 2;
 }
-
-/* 🎵 新聞列表 */
-.news-list {
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
+.news-list-content{
+    padding: 30px;
 }
-
-.news-list-content {
-    background-color: #fff9f0;
-    padding: 30px 40px;
-    margin-bottom: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    text-align: left; /* 全部靠左 */
-}
-
-.news-list-content h2 {
+.news-list-content h2{
     background-color: #c3b193;
     color: #5f473a;
-    border-radius: 25px;
-    padding: 8px 20px;
-    display: inline-block;
-    font-size: 28px;
-    margin-bottom: 20px;
+    border-radius: 30px;
+    padding: 3px 20px;
 }
-
-.news-list-content p {
-    font-size: 18px;
-    color: #3c2e26;
-}
-
-/* 🎵 分隔線 */
-hr {
-    border: none;
-    border-top: 2px dashed #c3b193;
-    margin: 40px 0;
-}
-
-/* 🎵 頁尾 */
-footer {
-    background-color:#000000;
-    color:#B7B7B7;
-    height:40px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
+.news-list-content p{
+    margin-left: 40px;
 }
