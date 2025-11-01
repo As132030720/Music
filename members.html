@@ -7,7 +7,7 @@
 <style>
 /* ---------- Reset ---------- */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans TC', sans-serif; }
-body { background-color: #f4e8d5; color:#333; }
+body { background-color: #f4e8d5; color:#333; overflow-x:hidden; }
 
 /* ---------- Header / Title ---------- */
 .index {
@@ -51,6 +51,19 @@ main {
     align-items:center;
     min-height: 70vh;
     padding-top:100px;
+    position: relative;
+    z-index:1;
+}
+
+/* ---------- Particle Canvas ---------- */
+#particle-canvas {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
 }
 
 /* ---------- Member Form ---------- */
@@ -58,7 +71,7 @@ main {
     position: relative;
     width: 420px;
     padding: 40px;
-    background-color: #5f473a;
+    background-color: rgba(95,71,58,0.95);
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.3);
     display:flex;
@@ -66,10 +79,11 @@ main {
     gap:20px;
     overflow:hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    z-index:2;
 }
 .member-form:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
 }
 .member-form h1 {
     color:#eee;
@@ -102,8 +116,8 @@ main {
 .member-form select:focus,
 .member-form textarea:focus {
     border-color:#c3b193;
-    box-shadow: 0 0 15px #c3b193;
-    background-color: rgba(255,255,255,0.1);
+    box-shadow: 0 0 20px #c3b193;
+    background-color: rgba(255,255,255,0.15);
 }
 
 /* ---------- Checkbox ---------- */
@@ -207,6 +221,7 @@ footer {
 </header>
 
 <main>
+    <canvas id="particle-canvas"></canvas>
     <div class="member-form">
         <h1>會員資料填寫</h1>
         <form>
@@ -237,16 +252,60 @@ footer {
 </footer>
 
 <script>
-// 高階小音符互動
+// ------------------ 小音符 ------------------
 const form = document.querySelector('.member-form');
-form.addEventListener('mousemove', e=>{
+function spawnNote(x, y){
     const note = document.createElement('span');
     note.className = 'music-note';
-    note.style.left = e.offsetX + 'px';
-    note.style.top = e.offsetY + 'px';
+    note.style.left = x + 'px';
+    note.style.top = y + 'px';
     note.style.transform = `rotate(${Math.random()*360}deg) scale(${0.8 + Math.random()*0.5})`;
     form.appendChild(note);
     setTimeout(()=> note.remove(), 1000);
+}
+form.addEventListener('mousemove', e => spawnNote(e.offsetX, e.offsetY));
+const inputs = form.querySelectorAll('input, select, textarea');
+inputs.forEach(input=>{
+    input.addEventListener('mouseenter', e=>{
+        spawnNote(e.offsetX || 0, e.offsetY || 0);
+    });
+});
+
+// ------------------ 粒子背景 ------------------
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const particles = [];
+for(let i=0;i<80;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2+1,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+    });
+}
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+        p.x += p.dx;
+        p.y += p.dy;
+        if(p.x>canvas.width)p.x=0;
+        if(p.x<0)p.x=canvas.width;
+        if(p.y>canvas.height)p.y=0;
+        if(p.y<0)p.y=canvas.height;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,255,255,0.3)';
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+window.addEventListener('resize', ()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 });
 </script>
 </body>
