@@ -56,32 +56,32 @@
 /* 🎵 標題區 */
 .title {
     height: 35vh;
-    background: url("image/instruments.jpg") center/cover no-repeat;
+    background: url("image/instruments.jpg") right/cover no-repeat;
     margin-top: 50px; /* 避開固定導覽列 */
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start; /* 靠右背景，文字靠左 */
+    padding-left: 5vw; /* 給文字一些間距 */
 }
 
 .title h1 {
     color: white;
     font-size: 60px;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    background-color: rgba(95, 71, 58, 0.4);
-    padding: 10px 30px;
-    border-radius: 15px;
+    background-color: transparent; /* 移除框框 */
+    padding: 0;
+    border-radius: 0;
 }
 
 /* 🎵 主內容 */
 main {
-    background-color: #f4e8d5;
+    background-color: #f4e8d5; /* 原本網頁背景顏色 */
     padding: 60px 10vw;
 }
 
 /* 🎵 新聞列表 */
 .news-list {
-    background-color: #fffdf8;
+    background-color: #f4e8d5; /* 與主內容背景一致 */
     border: 3px solid #5f473a;
     border-radius: 15px;
     box-shadow: 0 4px 10px rgba(95, 71, 58, 0.2);
@@ -147,36 +147,4 @@ footer {
 @media (max-width: 768px) {
     .index {
         flex-direction: column;
-        height: auto;
-        padding: 10px 0;
-    }
-    .index nav li {
-        display: block;
-        margin: 8px 0;
-        text-align: center;
-    }
-    .index nav a {
-        font-size: 15px;
-    }
-    .title h1 {
-        font-size: 38px;
-        padding: 10px 20px;
-    }
-    .news-list-content p {
-        font-size: 15px;
-        line-height: 1.8;
-    }
-}
-
-@media (max-width: 480px) {
-    .title h1 {
-        font-size: 30px;
-    }
-    .news-list-content h2 {
-        font-size: 18px;
-        padding: 6px 15px;
-    }
-    footer {
-        font-size: 12px;
-    }
-}
+       
