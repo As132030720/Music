@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>會員專區 | Q比音樂教育機構</title>
-<link rel="stylesheet" href="members.css">
 <style>
 /* ---------- Reset ---------- */
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans TC', sans-serif; }
 body { background-color: #f4e8d5; color:#333; }
 
-/* ---------- Header / 導覽列 ---------- */
+/* ---------- Header ---------- */
 .index {
     background-color: #5f473a;
     height:60px;
@@ -24,30 +23,15 @@ body { background-color: #f4e8d5; color:#333; }
     align-items:center;
     padding: 0 5vw;
 }
-.index a.logo {
-    color:white;
-    font-size: 22px;
-    font-weight: bolder;
-    text-decoration: none;
-}
+.index a.logo { color:white; font-size:22px; font-weight:bolder; text-decoration:none; }
 .index a.logo:hover { color:#f4e8d5; transition:0.3s; }
-.index nav ul {
-    list-style:none;
-    display:flex;
-    gap: 40px;
-}
+.index nav ul { list-style:none; display:flex; gap:40px; }
 .index nav ul li a {
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-    font-size:16px;
-    transition:0.3s;
+    color:white; text-decoration:none; font-weight:500; font-size:16px; transition:0.3s; letter-spacing:0.5px;
 }
-.index nav ul li a:hover {
-    text-decoration: underline;
-}
+.index nav ul li a:hover { text-decoration: underline; }
 
-/* ---------- 頁首標題 ---------- */
+/* ---------- Title ---------- */
 .title {
     height: 35vh;
     background-image: url("image/instruments.jpg");
@@ -59,21 +43,18 @@ body { background-color: #f4e8d5; color:#333; }
     padding: 60px;
     position: relative;
 }
-.title h1 {
-    font-size: 60px;
-    color:white;
-    text-shadow: 2px 2px 10px #5f473a;
-}
+.title h1 { font-size: 60px; color:white; text-shadow: 2px 2px 10px #5f473a; letter-spacing:1px; }
 
-/* ---------- Main / Form ---------- */
+/* ---------- Main ---------- */
 main {
     display:flex;
     justify-content:center;
     align-items:center;
     min-height: 70vh;
-    padding-top: 100px;
+    padding-top:100px;
 }
 
+/* ---------- Member Form ---------- */
 .member-form {
     position: relative;
     width: 420px;
@@ -85,16 +66,19 @@ main {
     flex-direction:column;
     gap:20px;
     overflow:hidden;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-.member-form:hover { transform: translateY(-5px); }
-
+.member-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+}
 .member-form h1 {
     color:#eee;
     font-size:32px;
     text-align:center;
     margin-bottom:10px;
     text-shadow: 1px 1px 5px #000;
+    letter-spacing:1px;
 }
 
 /* ---------- Inputs / Select / Textarea ---------- */
@@ -102,7 +86,7 @@ main {
 .member-form select,
 .member-form textarea {
     width:100%;
-    padding:12px 15px;
+    padding:14px 16px;
     border-radius:12px;
     border:2px solid #eee;
     background-color: rgba(255,255,255,0.05);
@@ -110,14 +94,17 @@ main {
     font-weight:500;
     outline:none;
     transition: all 0.3s ease;
+    letter-spacing:0.5px;
+    line-height:1.4em;
 }
 .member-form input::placeholder,
-.member-form textarea::placeholder { color:#eee; font-weight:400; }
+.member-form textarea::placeholder { color:#eee; font-weight:400; letter-spacing:0.5px; }
 .member-form input:focus,
 .member-form select:focus,
 .member-form textarea:focus {
     border-color:#c3b193;
-    box-shadow: 0 0 12px #c3b193;
+    box-shadow: 0 0 15px #c3b193;
+    background-color: rgba(255,255,255,0.1);
 }
 
 /* ---------- Checkbox ---------- */
@@ -128,10 +115,10 @@ main {
     gap:5px;
     font-size:14px;
     cursor:pointer;
+    letter-spacing:0.5px;
 }
 .member-form input[type="checkbox"] {
-    width:18px;
-    height:18px;
+    width:18px; height:18px;
     accent-color:#c3b193;
 }
 
@@ -139,7 +126,7 @@ main {
 .member-form button {
     width: 60%;
     margin: 0 auto;
-    padding:12px;
+    padding:14px;
     border:2px solid #eee;
     border-radius:30px;
     background-color: transparent;
@@ -148,6 +135,11 @@ main {
     cursor:pointer;
     overflow:hidden;
     position: relative;
+    transition: all 0.3s;
+}
+.member-form button:hover {
+    color:#5f473a;
+    background-color:#eee;
 }
 .member-form button::after {
     content:'';
@@ -169,7 +161,7 @@ main {
     transition: all 0.5s ease-out;
 }
 
-/* ---------- Music Note Animation ---------- */
+/* ---------- Music Note ---------- */
 .music-note {
     position:absolute;
     width:18px;
@@ -177,10 +169,12 @@ main {
     background:url('note.svg') no-repeat center/contain;
     animation: float 1s ease-out forwards;
     pointer-events:none;
+    transform-origin:center;
 }
 @keyframes float {
     0% { transform: translateY(0) scale(0); opacity:1; }
-    100% { transform: translateY(-60px) scale(1.2); opacity:0; }
+    50% { transform: translateY(-30px) scale(1.2); opacity:0.8; }
+    100% { transform: translateY(-60px) scale(1); opacity:0; }
 }
 
 /* ---------- Footer ---------- */
@@ -197,6 +191,7 @@ footer {
 </style>
 </head>
 <body>
+
 <header>
     <div class="index">
         <a class="logo" href="index.html">Q比音樂教育機構</a>
@@ -209,9 +204,7 @@ footer {
             </ul>
         </nav>
     </div>
-    <div class="title">
-        <h1>會員專區</h1>
-    </div>
+    <div class="title"><h1>會員專區</h1></div>
 </header>
 
 <main>
@@ -241,32 +234,21 @@ footer {
 </main>
 
 <footer>
-    <p>Copyright © 2025 Q比音樂教育機構 All Rights Reserved. Created By 黃柏郡</p>
+<p>Copyright © 2025 Q比音樂教育機構 All Rights Reserved. Created By 黃柏郡</p>
 </footer>
 
 <script>
-// 小音符動畫優化：用 requestAnimationFrame, 減少 DOM 堆積
+// 音符生成優化：滑鼠 hover 表單內部
 const form = document.querySelector('.member-form');
 form.addEventListener('mousemove', e=>{
     const note = document.createElement('span');
     note.className = 'music-note';
     note.style.left = e.offsetX + 'px';
     note.style.top = e.offsetY + 'px';
+    note.style.transform = `rotate(${Math.random()*360}deg)`;
     form.appendChild(note);
 
-    // 自動移除
-    let start;
-    const duration = 1000;
-    function animate(timestamp){
-        if(!start) start = timestamp;
-        const progress = timestamp - start;
-        if(progress < duration){
-            requestAnimationFrame(animate);
-        } else {
-            note.remove();
-        }
-    }
-    requestAnimationFrame(animate);
+    setTimeout(()=> note.remove(), 1000);
 });
 </script>
 </body>
