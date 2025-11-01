@@ -7,7 +7,7 @@
 
 /* 整個網頁背景色 */
 body {
-    background-color: #f4e8d5; /* 與 main 區域一致的柔和米色 */
+    background-color: #f4e8d5; /* 統一米色背景 */
     font-family: Arial, sans-serif;
 }
 
@@ -81,7 +81,7 @@ body {
 
 /* 主要內容區 */
 main {
-    background-color: #f4e8d5; /* 與 body 一致 */
+    background-color: #f4e8d5; /* 與網頁背景一致 */
     padding: 40px 10vw;
 }
 
@@ -90,7 +90,7 @@ main {
     border: 3px solid #5f473a;
     border-radius: 10px;
     padding: 20px;
-    background-color: #e8dfd3; /* 淺棕米色，比 main 深一點，增加層次感 */
+    background-color: #f4e8d5; /* 與網頁背景一致 */
 }
 
 .news-list-content {
