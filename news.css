@@ -8,37 +8,38 @@
 /* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height:45px;
+    height:60px; /* 提高高度，確保文字完全顯示 */
     width:100%;
     position: fixed;
+    top:0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 5vw;
 }
+
 .index a.logo {
     color:white;
-    font-size: 20px;
+    font-size: 22px; /* 加大字體 */
     font-weight: bolder;
-    position:absolute;
-    left: 80px;
-    top:0;
-    line-height: 45px;
     text-decoration: none;
 }
 .index a.logo:hover {
     color:#f4e8d5;
 }
+
 .index ul {
-    position:absolute;
-    right:5vw;
-    top:0;
-    line-height:45px;
+    margin-left: auto;
+    display: flex;
+    list-style: none;
 }
 .index li {
-    display:inline;
-    margin-right:4vw;    
+    margin-left: 3vw;    
 }
 .index ul a {
     color:white;
     text-decoration: none;
+    font-size: 16px;
 }
 .index ul a:hover {
     text-decoration: underline;
@@ -52,6 +53,7 @@
     background-size: cover;
     background-position: center;
     position: relative;
+    margin-top: 60px; /* 避開固定導覽列 */
 }
 
 .title h1{
@@ -82,7 +84,7 @@ main {
 .news-list-content {
     padding: 30px 40px;
     margin-bottom: 40px;
-    text-align: left; /* 改成靠左 */
+    text-align: left; /* 整個內容靠左 */
     background-color: #fff9f0;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
