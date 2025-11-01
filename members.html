@@ -1,23 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>會員專區</title>
     <link rel="stylesheet" href="members.css">
+    <style>
+        * { padding:0; margin:0; box-sizing:border-box; }
+
+        /* Header / 導覽列 */
+        .index {
+            background-color: #5f473a;
+            height:45px;
+            width:100%;
+            position: fixed;
+            top:0;
+            left:0;
+            z-index: 1000;
+        }
+        .index a.logo {
+            color:white;
+            font-size: 20px;
+            font-weight: bolder;
+            position:absolute;
+            left: 80px;
+            top:0;
+            line-height: 45px;
+            text-decoration: none;
+        }
+        .index a.logo:hover { color:#f4e8d5; }
+        .index ul {
+            position:absolute;
+            right:5vw;
+            top:0;
+            line-height:45px;
+        }
+        .index li { display:inline; margin-right:4vw; }
+        .index ul a { color:white; text-decoration: none; }
+        .index ul a:hover { text-decoration: underline; }
+
+        /* 頁首標題 */
+        .title{
+            height: 30vh;
+            background-image: url("image/instruments.jpg");
+            background-repeat: no-repeat;
+            background-size:cover;
+            background-position: center;
+            position: relative;
+        }
+        .title h1{
+            color:white;
+            text-shadow: #5f473a 0.1em 0.1em 0.2em;
+            position:absolute;
+            right: 60px;
+            top: 75px;
+            line-height: 80px;
+            font-size: 60px;
+        }
+
+        main {
+            background-color: #f4e8d5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70vh;
+            padding-top: 50px;
+        }
+
+        /* 表單樣式 */
+        .member-form {
+            position: relative;
+            width: 400px;
+            padding: 30px;
+            background-color: #5f473a;
+            border-radius: 15px;
+            box-shadow: 10px 10px 20px rgba(33,44,55,0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            overflow: hidden;
+        }
+        .member-form h1{
+            color: #eee;
+            text-shadow: #5f473a 0.1em 0.1em 0.2em;
+            font-size: 30px;
+            font-weight: bold;
+            z-index:1;
+        }
+        .member-form input, 
+        .member-form select, 
+        .member-form textarea {
+            width: 80%;
+            padding: 10px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            background-color: transparent;
+            color: #eee;
+            font-weight: bold;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .member-form input::placeholder,
+        .member-form textarea::placeholder { color:#eee; font-weight:bold; }
+        .member-form input:focus,
+        .member-form select:focus,
+        .member-form textarea:focus {
+            border-color: #c3b193;
+            box-shadow: 0 0 10px #c3b193;
+        }
+        .member-form button {
+            width: 50%;
+            padding: 10px;
+            border: 2px solid #eee;
+            border-radius: 20px;
+            background-color: transparent;
+            color: #eee;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .member-form button::after {
+            content:'';
+            position:absolute;
+            width:0;
+            height:0;
+            background-color: #c3b193;
+            top:50%;
+            left:50%;
+            transform: translate(-50%, -50%);
+            border-radius:50%;
+            transition: all 0.5s ease-out;
+            z-index:0;
+        }
+        .member-form button:active::after {
+            width: 1200px;
+            height: 1200px;
+            opacity:0;
+            transition: all 0.5s ease-out;
+        }
+
+        /* 小音符動畫 */
+        .music-note {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: url('note.svg') no-repeat center/contain;
+            animation: float 1s ease-out forwards;
+            pointer-events:none;
+        }
+        @keyframes float {
+            0% { transform: translateY(0) scale(0); opacity:1; }
+            100% { transform: translateY(-50px) scale(1); opacity:0; }
+        }
+
+        /* Footer */
+        footer {
+            background-color:#000000;
+            color:#B7B7B7;
+            height:40px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="index">
-        <a class="logo" href="index.html">Q比音樂教育機構<a>
-        <nav>
-          <ul>
-              <li><a href="news.html" target="_blank">最新消息</a></li>
-              <li><a href="story.html" target="_blank">品牌故事</a></li>
-              <li><a href="instruments.html" target="_blank">教授樂器</a></li>
-              <li><a href="members.html" target="_blank">會員專區</a></li>                
-          </ul>
-        </nav> 
+            <a class="logo" href="index.html">Q比音樂教育機構</a>
+            <nav>
+              <ul>
+                  <li><a href="news.html" target="_blank">最新消息</a></li>
+                  <li><a href="story.html" target="_blank">品牌故事</a></li>
+                  <li><a href="instruments.html" target="_blank">教授樂器</a></li>
+                  <li><a href="members.html" target="_blank">會員專區</a></li>                
+              </ul>
+            </nav> 
         </div> 
         <div class="title">
           <h1>會員專區</h1>
@@ -25,86 +187,48 @@
     </header>
 
     <main>
-        <div class="login">
-            <h1>LOGIN</h1>
-            <form action="">
+        <div class="member-form">
+            <h1>會員資料填寫</h1>
+            <form>
+                <input type="text" placeholder="姓名">
                 <input type="text" placeholder="帳號">
-                <input type="text" placeholder="密碼">
-                <button>登入</button>
+                <input type="password" placeholder="密碼">
+                <input type="email" placeholder="電子郵件">
+                <input type="text" placeholder="電話">
+
+                <select>
+                    <option value="">喜愛樂器</option>
+                    <option value="piano">鋼琴</option>
+                    <option value="violin">小提琴</option>
+                    <option value="guitar">吉他</option>
+                </select>
+
+                <label><input type="checkbox" name="course" value="beginner"> 初級課程</label>
+                <label><input type="checkbox" name="course" value="intermediate"> 中級課程</label>
+                <label><input type="checkbox" name="course" value="advanced"> 高級課程</label>
+
+                <textarea placeholder="備註"></textarea>
+
+                <button type="submit">提交</button>
             </form>
         </div>
-        <script>
-            window.onload = function () {
-        //獲取login
-        let login = document.querySelector('.login')  
-        let span
-        let inTime, outTime
-        let isIn = true //默認打開
-        let isOut    
-        //滑鼠進入
-        login.addEventListener('mouseenter', function (e) {
-            isOut = false//預先關閉，如果沒有進入if，就不會到滑鼠離開的if
-            if (isIn) {
-                inTime = new Date().getTime()
-    
-                //生成span元素加進login的末尾
-                span = document.createElement('span')
-                login.appendChild(span)
-    
-                //span去使用in動畫
-                span.style.animation = 'in .5s ease-out forwards'
-    
-                //計算 top 和 left 值，追蹤滑鼠位置
-                let top = e.clientY - e.target.offsetTop
-                let left = e.clientX - e.target.offsetLeft
-    
-                span.style.top = top + 'px'
-                span.style.left = left + 'px'
-    
-                isIn = false
-                isOut = true
-    
-            }
-        })
- 
-        //滑鼠離開
-        login.addEventListener('mouseleave', function (e) {
-            if (isOut) {
-                outTime = new Date().getTime()
-                let passTime = outTime - inTime
-    
-                if (passTime < 500) {
-                    setTimeout(mouseleave, 500 - passTime) //以經過的時間就不要
-                }
-                else {
-                    mouseleave()
-                }
-            }
-    
-            function mouseleave() {
-                span.style.animation = 'out .5s ease-out forwards'
-    
-                //計算 top 和 left 值，追蹤滑鼠位置
-                let top = e.clientY - e.target.offsetTop
-                let left = e.clientX - e.target.offsetLeft
-    
-                span.style.top = top + 'px'
-                span.style.left = left + 'px'
-    
-                //定時器
-                setTimeout(function () {
-                    login.removeChild(span)
-                    isIn = true //執行完滑鼠離開才打開
-                }, 500)
-            }
-            })
-        }
-        </script>
     </main>
 
     <footer>
         <p>Copyright © 2025 Q比音樂教育機構 All Rights Reserved. Created By 黃柏郡</p>
     </footer>
-</body>
 
+    <script>
+        // 滑鼠在表單上生成小音符
+        const form = document.querySelector('.member-form');
+        form.addEventListener('mousemove', (e)=>{
+            const note = document.createElement('span');
+            note.className = 'music-note';
+            note.style.left = e.offsetX + 'px';
+            note.style.top = e.offsetY + 'px';
+            form.appendChild(note);
+            setTimeout(()=> form.removeChild(note), 1000);
+        });
+    </script>
+</body>
 </html>
