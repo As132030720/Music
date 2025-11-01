@@ -1,70 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,
-  minimum-scale=1,maximum-scale=1,user-scalable=no">
-    <title>集團活動</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="activity.css">
-    <script src="activity.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>集團活動 | Q比音樂教育機構</title>
+<link rel="stylesheet" href="activity.css">
+<style>
+/* ---------- Reset ---------- */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Microsoft JhengHei', sans-serif; }
+body { background-color:#f4e8d5; color:#333; }
+
+/* ---------- Header ---------- */
+.index {
+    background-color:#5f473a;
+    height:60px;
+    width:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:0 5vw;
+}
+.index a.logo { color:white; font-size:22px; font-weight:bolder; text-decoration:none; }
+.index a.logo:hover { color:#f4e8d5; transition:0.3s; }
+.index nav ul { display:flex; gap:40px; list-style:none; }
+.index nav ul li a { color:white; text-decoration:none; font-weight:500; font-size:16px; transition:0.3s; }
+.index nav ul li a:hover { text-decoration:underline; color:#f4e8d5; }
+
+/* ---------- Title ---------- */
+.title {
+    height:30vh;
+    background-image:url("image/instruments.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+    padding:0 60px 20px 0;
+}
+.title h1 { color:white; font-size:60px; text-shadow:2px 2px 10px #5f473a; }
+
+/* ---------- Menu Dropdown ---------- */
+.menu { margin-top:20px; text-align:center; }
+.menu ul { list-style:none; display:inline-block; position:relative; }
+.menu ul li { cursor:pointer; padding:10px 20px; background-color:#5f473a; color:white; border-radius:5px; }
+.menu ul li:hover { background-color:#704f3a; }
+.menu ul li ul.menu-content { display:none; position:absolute; top:100%; left:0; background-color:#c3b193; border-radius:5px; padding:5px 0; min-width:150px; z-index:10; }
+.menu ul li:hover ul.menu-content { display:block; }
+.menu ul li ul.menu-content li { padding:8px 15px; }
+.menu ul li ul.menu-content li a { color:#5f473a; text-decoration:none; }
+.menu ul li ul.menu-content li a:hover { text-decoration:underline; }
+
+/* ---------- Carousel ---------- */
+.lunbo { position:relative; max-width:900px; margin:40px auto; overflow:hidden; border-radius:10px; }
+.content { position:relative; }
+#item { list-style:none; display:flex; transition:0.5s; padding:0; margin:0; }
+#item li { min-width:100%; }
+#item li img { width:100%; display:block; border-radius:10px; }
+#btn-left, #btn-right { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.3); color:white; font-size:30px; width:40px; height:40px; text-align:center; line-height:40px; cursor:pointer; border-radius:50%; user-select:none; }
+#btn-left { left:10px; }
+#btn-right { right:10px; }
+#circle { position:absolute; bottom:15px; left:50%; transform:translateX(-50%); display:flex; gap:10px; list-style:none; padding:0; margin:0; }
+#circle li { width:12px; height:12px; background:#c3b193; border-radius:50%; cursor:pointer; }
+#circle li.active { background:#5f473a; }
+
+/* ---------- Main ---------- */
+main { padding:150px 20px 50px; text-align:center; }
+
+/* ---------- Footer ---------- */
+footer { background-color:#000; color:#B7B7B7; height:50px; display:flex; justify-content:center; align-items:center; font-size:14px; margin-top:50px; }
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width:768px){
+    .index { flex-direction:column; height:auto; padding:10px 5vw; }
+    .index nav ul { flex-direction:column; gap:10px; margin-top:10px; }
+    .title h1 { font-size:36px; }
+    .lunbo { max-width:100%; }
+}
+</style>
 </head>
 <body>
-    <header>
-      <div class="index">
-      <a class="logo" href="index.html">Q比音樂教育機構<a>
-      <nav>
-        <ul>
-            <li><a href="news.html" target="_blank">最新消息</a></li>
-            <li><a href="story.html" target="_blank">品牌故事</a></li>
-            <li><a href="instruments.html" target="_blank">教授樂器</a></li>
-            <li><a href="members.html" target="_blank">會員專區</a></li>                
-        </ul>
-      </nav> 
-      </div> 
-      <div class="title">
+
+<header>
+    <div class="index">
+        <a class="logo" href="index.html">Q比音樂教育機構</a>
+        <nav>
+            <ul>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="story.html">品牌故事</a></li>
+                <li><a href="instruments.html">教授樂器</a></li>
+                <li><a href="members.html">會員專區</a></li>                
+            </ul>
+        </nav> 
+    </div> 
+    <div class="title">
         <h1>集團活動</h1>
-      </div> 
-    </header>
-    <main>
-      <div class="menu">
+    </div> 
+</header>
+
+<main>
+    <div class="menu">
         <ul>
-          <li>查看更多</li>
-              <ul class="menu-content">
-                  <li><a href="welfare.html">公益活動</a></li>
-                  <li><a href="plclass.html">公開課</a></li>
-                  <li><a href="creator.html">創辦人介紹</a></li>
-              </ul>
+            <li>查看更多
+                <ul class="menu-content">
+                    <li><a href="welfare.html">公益活動</a></li>
+                    <li><a href="plclass.html">公開課</a></li>
+                    <li><a href="creator.html">創辦人介紹</a></li>
+                </ul>
+            </li>
         </ul>
-      </div>
+    </div>
 
-      <div class="lunbo">
+    <div class="lunbo">
         <div class="content">
-          <ul id="item">
-            <li class="item active">
-              <img src="image/act_img_1.jpg" >
-            </li>
-            <li class="item">
-              <img src="image/act_img_2.jpg" >
-            </li>
-            <li class="item">
-              <img src="image/act_img_3.jpg" >
-            </li>
-          </ul>
-          <div id="btn-left"><</div>
-          <div id="btn-right">></div>
-          <ul id="circle">
-            <li class="circle"></li>
-            <li class="circle"></li>
-            <li class="circle"></li>
-          </ul>
+            <ul id="item">
+                <li class="item active"><img src="image/act_img_1.jpg"></li>
+                <li class="item"><img src="image/act_img_2.jpg"></li>
+                <li class="item"><img src="image/act_img_3.jpg"></li>
+            </ul>
+            <div id="btn-left"><</div>
+            <div id="btn-right">></div>
+            <ul id="circle">
+                <li class="circle active"></li>
+                <li class="circle"></li>
+                <li class="circle"></li>
+            </ul>
         </div>
-      </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-      <p>Copyright © 2025 Q比音樂教育機構 All Rights Reserved. Created By 黃柏郡</p>
-    </footer>
+<footer>
+    <p>Copyright © 2025 Q比音樂教育機構 All Rights Reserved. Created By 黃柏郡</p>
+</footer>
+
+<script src="activity.js"></script>
 </body>
-
 </html>
