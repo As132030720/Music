@@ -1,6 +1,6 @@
 * {
-    margin: 0;
-    padding: 0;
+    padding:0;
+    margin:0;
     box-sizing: border-box;
     font-family: "Noto Sans TC", sans-serif;
 }
@@ -8,65 +8,58 @@
 /* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height: 50px;
-    width: 100%;
+    height:45px;
+    width:100%;
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5vw;
 }
-
 .index a.logo {
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
+    color:white;
+    font-size: 20px;
+    font-weight: bolder;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
 }
-
 .index a.logo:hover {
-    color: #f4e8d5;
+    color:#f4e8d5;
 }
-
-.index nav ul {
-    list-style: none;
+.index ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:45px;
 }
-
-.index nav li {
-    display: inline-block;
-    margin-left: 3vw;
+.index li {
+    display:inline;
+    margin-right:4vw;    
 }
-
-.index nav a {
-    color: white;
+.index ul a {
+    color:white;
     text-decoration: none;
-    font-size: 16px;
-    transition: all 0.3s ease;
 }
-
-.index nav a:hover {
-    color: #f4e8d5;
+.index ul a:hover {
     text-decoration: underline;
 }
 
 /* 🎵 標題區 */
-.title {
-    height: 30vh; /* 會員專區範例高度 */
-    background: url("image/instruments.jpg") right/cover no-repeat;
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 50px;
+.title{
+    height: 30vh; /* 仿會員專區 */
+    background-image: url("image/instruments.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
     position: relative;
 }
-
 .title h1{
     color:white;
     text-shadow: #5f473a 0.1em 0.1em 0.2em;
+    position:absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 60px;
     text-align: right;
 }
@@ -79,7 +72,7 @@ main {
 
 /* 🎵 新聞列表 */
 .news-list {
-    background-color: transparent; /* 取消背景框 */
+    background-color: transparent; /* 無白色背景 */
     border: none;
     box-shadow: none;
 }
@@ -115,64 +108,11 @@ hr {
 
 /* 🎵 頁尾 */
 footer {
-    background-color: #000000;
-    color: #B7B7B7;
-    height: 40px;
-    display: flex;
+    background-color:#000000;
+    color:#B7B7B7;
+    height:40px;
+    display:flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-}
-
-/* 🎵 RWD 響應式設計 */
-@media (max-width: 992px) {
-    .title h1 {
-        font-size: 48px;
-    }
-    .news-list-content {
-        padding: 30px 20px;
-    }
-    .news-list-content h2 {
-        font-size: 20px;
-    }
-    main {
-        padding: 40px 5vw;
-    }
-}
-
-@media (max-width: 768px) {
-    .index {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 0;
-    }
-    .index nav li {
-        display: block;
-        margin: 8px 0;
-        text-align: center;
-    }
-    .index nav a {
-        font-size: 15px;
-    }
-    .title h1 {
-        font-size: 38px;
-        padding: 10px 20px;
-    }
-    .news-list-content p {
-        font-size: 15px;
-        line-height: 1.8;
-    }
-}
-
-@media (max-width: 480px) {
-    .title h1 {
-        font-size: 30px;
-    }
-    .news-list-content h2 {
-        font-size: 18px;
-        padding: 6px 15px;
-    }
-    footer {
-        font-size: 12px;
-    }
 }
