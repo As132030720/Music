@@ -1,20 +1,22 @@
-/* 基本重設 */
+/* ===================== 基本重設 ===================== */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/* 整個網頁背景色 */
+/* ===================== 全站背景與字體 ===================== */
 body {
-    background-color: #f4e8d5; /* 統一米色背景 */
+    background-color: #5f473a; /* 與首頁 header 顏色一致 */
     font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #FEF7E6; /* 預設文字米色 */
 }
 
-/* 導覽列 */
-.index {
-    background-color: #5f473a;
-    height: 45px;
+/* ===================== 導覽列 ===================== */
+header, .index {
+    background-color: #5f473a; /* 與首頁一致 */
+    height: 80px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -22,103 +24,50 @@ body {
     z-index: 1000;
 }
 
-.index a.logo {
-    color: white;
+header h1, .index a.logo {
+    color: #FEF7E6;
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: bold;
     position: absolute;
     left: 80px;
     top: 0;
-    line-height: 45px;
+    line-height: 80px;
     text-decoration: none;
 }
 
-.index a.logo:hover {
-    color: #f4e8d5;
+header h1:hover, .index a.logo:hover {
+    color: #ffffff;
 }
 
-.index ul {
+header ul, .index ul {
     position: absolute;
     right: 5vw;
     top: 0;
-    line-height: 45px;
+    line-height: 80px;
 }
 
-.index li {
-    display: inline;
+header li, .index li {
+    display: inline-block;
     margin-right: 4vw;
 }
 
-.index ul a {
-    color: white;
+header a, .index a {
+    color: #FEF7E6;
     text-decoration: none;
 }
 
-.index ul a:hover {
+header a:hover, .index a:hover {
     text-decoration: underline;
 }
 
-/* 標題區 */
-.title {
-    height: 30vh;
-    background-image: url("image/instruments.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin-top: 45px; /* 避免被固定導覽列遮住 */
-    display: flex;
-    justify-content: flex-end; /* 標題靠右 */
-    align-items: center;
-    padding-right: 10vw; /* 距右邊距 */
-}
-
-.title h1 {
-    color: white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    font-size: 60px;
-    text-align: right;
-}
-
-/* 主要內容區 */
-main {
-    background-color: #f4e8d5; /* 與網頁背景一致 */
+/* ===================== 主要內容區 ===================== */
+main, .news-list, .members-content, .story-content, .plclass-content, .welfare-content {
+    background-color: #5f473a; /* 與 body 統一 */
+    color: #FEF7E6;
     padding: 40px 10vw;
 }
 
-/* 新聞列表 */
-.news-list {
-    border: 3px solid #5f473a;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #f4e8d5; /* 與網頁背景一致 */
-}
-
-.news-list-content {
-    padding: 30px;
-}
-
-.news-list-content h2 {
-    background-color: #c3b193;
-    color: #5f473a;
-    border-radius: 30px;
-    padding: 5px 20px;
-    display: inline-block;
-}
-
-.news-list-content p {
-    margin-left: 20px; /* 可保留或移除 */
-    line-height: 1.8;
-    color: #3c2e26;
-    text-align: right; /* 文字靠右 */
-}
-
-hr {
-    border: none;
-    border-top: 2px solid #c3b193;
-    margin: 20px 0;
-}
-
-/* 表格響應式（若未來有表格） */
+/* ===================== 表格響應式 ===================== */
 .table-container {
     overflow-x: auto;
 }
@@ -126,24 +75,67 @@ hr {
 table {
     width: 100%;
     border-collapse: collapse;
+    background-color: #5f473a; /* 與背景統一 */
+    color: #FEF7E6;
 }
 
-/* RWD 響應式設計 */
+/* ===================== 圖片自動縮放 ===================== */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===================== 標題區 ===================== */
+.title {
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px; /* 避免被固定 header 遮住 */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10vw;
+}
+
+.title h1 {
+    color: #FEF7E6;
+    text-shadow: #000000 0.1em 0.1em 0.2em;
+    font-size: 60px;
+    text-align: right;
+}
+
+/* ===================== Footer ===================== */
+footer {
+    background-color: #000000;
+    color: #B7B7B7;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+/* ===================== 手機響應式 ===================== */
 @media (max-width: 768px) {
-    .index a.logo {
+    header h1, .index a.logo {
         left: 20px;
         font-size: 16px;
+        line-height: 60px;
     }
-    .index ul {
+
+    header ul, .index ul {
         right: 20px;
     }
-    main {
+
+    main, .news-list, .members-content, .story-content, .plclass-content, .welfare-content {
         padding: 20px 5vw;
     }
+
     .title h1 {
         font-size: 40px;
     }
-    .news-list-content p {
-        margin-left: 0; /* 手機版去掉左邊距 */
+
+    .table-container {
+        overflow-x: auto;
     }
 }
