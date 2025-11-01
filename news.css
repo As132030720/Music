@@ -1,183 +1,185 @@
-/* 基本重設 */
 * {
-    padding:0;
-    margin:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: "Noto Sans TC", sans-serif;
 }
 
-/* 導覽列 */
+/* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height:45px;
-    width:100%;
+    height: 50px;
+    width: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
 }
+
 .index a.logo {
-    color:white;
-    font-size: 20px;
-    font-weight: bolder;
-    position:absolute;
-    left: 80px;
-    top:0;
-    line-height: 45px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
+
 .index a.logo:hover {
-    color:#f4e8d5;
-    position:absolute;
-    left: 80px;
-    top:0;
-    line-height: 45px;
+    color: #f4e8d5;
+}
+
+.index nav ul {
+    list-style: none;
+}
+
+.index nav li {
+    display: inline-block;
+    margin-left: 3vw;
+}
+
+.index nav a {
+    color: white;
     text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
-.index ul {
-    position:absolute;
-    right:5vw;
-    top:0;
-    line-height:45px;
-}
-.index li {
-    display:inline;
-    margin-right:4vw;    
-}
-.index ul a {
-    color:white;
-    text-decoration: none;
-}
-.index ul a:hover {
+
+.index nav a:hover {
+    color: #f4e8d5;
     text-decoration: underline;
 }
 
-/* 標題區 */
-.title{
-    height: 30vh;
-    background-image: url("image/instruments.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-}
-
-.title h1{
-    color:white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position:absolute;
-    right: 60px;
-    top: 75px;
-    line-height: 80px;
-    font-size: 60px;
-}
-
-/* 主內容 */
-main {
-    background-color: #f4e8d5;
+/* 🎵 標題區 */
+.title {
+    height: 35vh;
+    background: url("image/instruments.jpg") center/cover no-repeat;
+    margin-top: 50px; /* 避開固定導覽列 */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 70vh;
-}
-
-/* login 區（如果有） */
-.login{
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 300px;
-    height: 300px;
-    background-color: #5f473a;
-    border-radius: 10px;
-    box-shadow: 10px 10px 20px rgb(33, 44, 55, .3);
-}
-.login h1{
-    color: #eee;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    font-size: 30px;
-    font-weight: bold;
-    z-index: 1;
     text-align: center;
 }
-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 230px;
-    z-index: 1;
-}
-input {
-    width: 200px;
-    height: 40px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #eee;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    outline: none;
-}
-input::placeholder{
-    font-size: 18px;    
-    color:#eee;
-}
-button {
-    width: 180px;
-    height: 40px;
-    border: 1px solid #eee;
-    background-color: transparent;
-    border-radius: 20px;
-    color: #eee;
-    font-size: 18px;
-    font-weight: bold;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    cursor: pointer;
-}
-span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    background-color: #c3b193;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-}
-@keyframes in {
-    0% {
-        width: 0;
-        height: 0;
-    }
- 
-    100% {
-        width: 1200px;
-        height: 1200px;
-    }
-} 
-@keyframes out {
-    0% {
-        width: 1200px;
-        height: 1200px;
-    }
- 
-    100% {
-        width: 0;
-        height: 0;
-    }
+
+.title h1 {
+    color: white;
+    font-size: 60px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: rgba(95, 71, 58, 0.4);
+    padding: 10px 30px;
+    border-radius: 15px;
 }
 
-/* 🎵 修改後的 footer */
+/* 🎵 主內容 */
+main {
+    background-color: #f4e8d5;
+    padding: 60px 10vw;
+}
+
+/* 🎵 新聞列表 */
+.news-list {
+    background-color: #fffdf8;
+    border: 3px solid #5f473a;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(95, 71, 58, 0.2);
+    overflow: hidden;
+}
+
+.news-list-content {
+    padding: 40px 30px;
+}
+
+.news-list-content h2 {
+    background-color: #c3b193;
+    color: #5f473a;
+    border-radius: 25px;
+    padding: 8px 20px;
+    display: inline-block;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.news-list-content p {
+    margin-top: 10px;
+    margin-left: 10px;
+    line-height: 1.9;
+    color: #3c2e26;
+    font-size: 16px;
+}
+
+/* 🎵 分隔線 */
+hr {
+    border: none;
+    border-top: 2px dashed #c3b193;
+    margin: 10px 5%;
+}
+
+/* 🎵 頁尾 */
 footer {
-    background-color:#000000;
-    color:#B7B7B7;
-    height:40px;
-    display:flex;
+    background-color: #000000;
+    color: #B7B7B7;
+    height: 40px;
+    display: flex;
     justify-content: center; /* 水平置中 */
     align-items: center;     /* 垂直置中 */
     font-size: 14px;
     text-align: center;
     padding: 0 10px;
     box-sizing: border-box;
+}
+
+/* 🎵 RWD 響應式設計 */
+@media (max-width: 992px) {
+    .title h1 {
+        font-size: 48px;
+    }
+    .news-list-content {
+        padding: 30px 20px;
+    }
+    .news-list-content h2 {
+        font-size: 20px;
+    }
+    main {
+        padding: 40px 5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .index {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .index nav li {
+        display: block;
+        margin: 8px 0;
+        text-align: center;
+    }
+    .index nav a {
+        font-size: 15px;
+    }
+    .title h1 {
+        font-size: 38px;
+        padding: 10px 20px;
+    }
+    .news-list-content p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 30px;
+    }
+    .news-list-content h2 {
+        font-size: 18px;
+        padding: 6px 15px;
+    }
+    footer {
+        font-size: 12px;
+    }
 }
