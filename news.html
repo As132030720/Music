@@ -1,125 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>最新消息 | Q比音樂教育機構</title>
-<style>
-/* ---------- 全域重設 ---------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Microsoft JhengHei", sans-serif;
-}
-body { background-color: #f4e8d5; color: #333; }
-
-/* ---------- 導覽列 ---------- */
-.index {
-    background-color: #5f473a;
-    height: 45px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5vw;
-}
-.index a.logo { color: white; font-size: 20px; font-weight: bolder; text-decoration: none; }
-.index a.logo:hover { color: #f4e8d5; transition: 0.3s; }
-.index nav ul { display: flex; gap: 4vw; flex-wrap: wrap; }
-.index nav li { list-style: none; }
-.index nav a { color: white; text-decoration: none; transition: 0.3s; }
-.index nav a:hover { text-decoration: underline; color: #f4e8d5; }
-
-/* ---------- 標題區 ---------- */
-.title {
-    height: 30vh;
-    background-image: url("image/instruments.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 0 60px 20px 0;
-}
-.title h1 {
-    color: white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    font-size: 60px;
-    line-height: 1.2;
-}
-
-/* ---------- 主內容 ---------- */
-main {
-    max-width: 1200px;
-    margin: calc(30vh + 10px) auto 50px auto;
-    padding: 0 20px;
-}
-
-/* ---------- 新聞列表 ---------- */
-.news-list { border: 3px solid #5f473a; border-radius: 10px; overflow: hidden; }
-.news-list-content { padding: 30px; }
-.news-list-content h2 {
-    background-color: #c3b193;
-    color: #5f473a;
-    border-radius: 30px;
-    padding: 10px 20px;
-    transition: 0.3s;
-    cursor: pointer;
-}
-.news-list-content h2:hover { background-color: #b9a67f; }
-.news-list-content p {
-    margin-top: 15px;
-    line-height: 2;
-    letter-spacing: 0.5px;
-}
-
-/* ---------- hr 優化 ---------- */
-.news-list hr {
-    border: none;
-    border-top: 1px solid rgba(95, 71, 58, 0.3);
-    margin: 0;
-}
-
-/* ---------- 響應式 ---------- */
-@media screen and (max-width: 1200px){
-    .title h1 { font-size: 48px; }
-    main { padding: 0 30px; }
-}
-@media screen and (max-width: 768px){
-    .index { flex-direction: column; height: auto; padding: 10px 5vw; align-items: flex-start; }
-    .index nav ul { flex-direction: column; gap: 10px; margin-top: 10px; }
-    .title { justify-content: center; align-items: center; height: 25vh; padding: 0 20px 20px 20px; }
-    .title h1 { font-size: 32px; text-align: center; }
-    main { padding: 0 15px; margin-top: calc(25vh + 10px); }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新消息</title>
+    <link rel="stylesheet" href="news.css">
 </head>
 <body>
-<header>
-    <div class="index">
-        <a class="logo" href="index.html">Q比音樂教育機構</a>
+    <header>
+        <div class="index">
+        <a class="logo" href="index.html">Q比音樂教育機構<a>
         <nav>
-            <ul>
-                <li><a href="news.html">最新消息</a></li>
-                <li><a href="story.html">品牌故事</a></li>
-                <li><a href="instruments.html">教授樂器</a></li>
-                <li><a href="members.html">會員專區</a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="title">
-        <h1>最新消息</h1>
-    </div>
-</header>
+          <ul>
+              <li><a href="news.html" target="_blank">最新消息</a></li>
+              <li><a href="story.html" target="_blank">品牌故事</a></li>
+              <li><a href="instruments.html" target="_blank">教授樂器</a></li>
+              <li><a href="members.html" target="_blank">會員專區</a></li>                
+          </ul>
+        </nav> 
+        </div> 
+        <div class="title">
+          <h1>最新消息</h1>
+        </div> 
+    </header>
 
-<main>
-    <div class="news-list">
-        <article class="news-list-content">
+    <main>
+        <div class="news-list">
+            <div class="news-list-content">
             <h2>2024夏季音樂工作坊開跑囉！</h2>
             <p>
                 2024夏季音樂工作坊開跑囉，專為熱愛音樂的學員設計，為期四週的密集課程，
@@ -127,9 +34,9 @@ main {
                 包括基礎樂理、聲樂訓練、樂器演奏和合奏排練等。
                 <br>所有課程均由Q比經驗豐富師資指導，提供個人化教學，幫助您在音樂之路上不斷進步。立即報名，名額有限，先搶先贏！
             </p>
-        </article>
-        <hr>
-        <article class="news-list-content">
+            </div>
+            <hr>
+            <div class="news-list-content">
             <h2>鋼琴名家-鋼琴大師班系列</h2>
             <p>
                 2024 ☆ 鋼琴名家-鋼琴大師班系列 ☆【夏季鋼琴大師班】
@@ -146,9 +53,9 @@ main {
                 <br>6. 盧 易之 老師 (任教 台北藝術大學音樂系)
                 <br>7. 蔡 明叡 老師 (任教 東吳大學音樂系)
             </p>
-        </article>
-        <hr>
-        <article class="news-list-content">
+            </div>
+            <hr>
+            <div class="news-list-content">
             <h2>【Q比音樂教室10周年慶】活動開催！</h2>
             <p>
                 Q比音樂教室10歲啦！
@@ -156,9 +63,9 @@ main {
                 <br>免費試聽課程、師生音樂會、樂器展示及互動體驗區、特別抽獎等精彩活動等你來參加！
                 <br>詳細的活動安排和報名方式請關注官網。我們期待與您一同慶祝這個特別的日子！
             </p>
-        </article>
-        <hr>
-        <article class="news-list-content">
+            </div>
+            <hr>
+            <div class="news-list-content">
             <h2>【5/29(三) 加盟說明會】流行音樂課&鋼琴個別課</h2>
             <p>
                 Q比音樂教室10年來，培育了超過10000名音樂學子，全台超過300名專業師資，為全台最大音樂教學系統。
@@ -166,8 +73,8 @@ main {
                 <br>2024年度上半年加盟說明會將於2024/5/29 13:30於Q比音樂教室總教室進行，歡迎想要培育音樂幼苗、有教育熱忱的你加入我們
                 一同為音樂教育創造不一樣的新世界！
             </p>
-        </article>
-    </div>
-</main>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
