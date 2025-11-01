@@ -54,7 +54,7 @@
 
 /* 🎵 標題區 */
 .title {
-    height: 35vh;
+    height: 30vh; /* 仿會員專區高度 */
     background: url("image/instruments.jpg") right/cover no-repeat;
     margin-top: 50px; /* 避開固定導覽列 */
     display: flex;
@@ -67,10 +67,6 @@
 .title h1{
     color:white;
     text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position:absolute;
-    right: 60px;
-    top: 75px;
-    line-height: 80px;
     font-size: 60px;
     text-align: right; /* 文字靠右 */
 }
@@ -83,10 +79,10 @@ main {
 
 /* 🎵 新聞列表 */
 .news-list {
-    background-color: #f4e8d5;
-    border: 3px solid #5f473a;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(95, 71, 58, 0.2);
+    /* 移除背景框框 */
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
     overflow: hidden;
 }
 
@@ -182,4 +178,3 @@ footer {
         font-size: 12px;
     }
 }
-
