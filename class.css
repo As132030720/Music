@@ -1,232 +1,126 @@
-/* 全域重設 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Microsoft JhengHei", sans-serif;
+    padding:0;
+    margin:0;
 }
 
-/* 導覽列 */
 .index {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: #5f473a;
-    padding: 0 5vw;
-    height: 60px;
+    height:45px;
+    width:100%;
     position: fixed;
-    top: 0;
-    width: 100%;
     z-index: 1000;
 }
-
 .index a.logo {
-    color: #fff;
-    font-size: 22px;
-    font-weight: bold;
+    color:white;
+    font-size: 20px;
+    font-weight: bolder;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
 }
-
 .index a.logo:hover {
-    color: #f4e8d5;
-}
-
-.index ul {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.index li {
-    list-style: none;
-}
-
-.index li a {
-    color: #fff;
-    font-weight: bold;
-    font-size: 18px;
+    color:#f4e8d5;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
-    transition: 0.3s;
 }
-
-.index li a:hover {
+.index ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:45px;
+}
+.index li {
+    display:inline;
+    margin-right:4vw;    
+}
+.index ul a {
+    color:white;
+    text-decoration: none;
+}
+.index ul a:hover {
     text-decoration: underline;
-    color: #f4e8d5;
 }
 
-/* 標題區 */
-.title {
+.title{
     height: 30vh;
     background-image: url("image/instruments.jpg");
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size:cover;
     background-position: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 0 20px 20px 20px;
-    margin-top: 60px;
 }
-
-.title h1 {
-    color: #fff;
+.title h1{
+    color:white;
+    text-shadow: #5f473a 0.1em 0.1em 0.2em;
+    position:absolute;
+    right: 60px;
+    top: 75px;
+    line-height: 80px;
     font-size: 60px;
-    text-shadow: 0.1em 0.1em 0.2em #5f473a;
-    line-height: 1.2;
 }
-
-/* 主內容區 */
 main {
+    background-color: #f4e8d5;
     display: flex;
     flex-direction: row;
-    padding: 20px 30px;
-    gap: 20px;
-    background-color: #f4e8d5;
-    min-height: calc(100vh - 60px - 30vh - 40px); /* 減去 header, title, footer */
+    height: 70vh; 
+    padding: 10px 30px;
 }
-
-/* iframe 地圖 */
 iframe {
     flex: 4;
-    width: 100%;
-    height: 100%;
     border: none;
-    min-height: 400px;
-    border-radius: 10px;
 }
-
-/* 側邊內容列表 */
 .content {
     flex: 3;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    overflow-y: auto;
-    max-height: 100%;
-    background-color: #f4e8d5;
-    border-radius: 10px;
-    gap: 10px;
+    overflow-y: auto; /* 進度條 */
 }
-
 .select-city {
     margin-bottom: 10px;
 }
-
-select {
+select{
     background-color: #f4e8d5;
     padding: 5px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #c3b193;
 }
-
 .city-content {
-    display: none;
-    overflow-y: auto;
-    max-height: 400px;
+    display: none; /* 隱藏內容 */
+    overflow-y: auto; /* 進度條 */
 }
-
-.city-content.active {
-    display: block;
-}
-
 .content-list {
     margin-bottom: 10px;
 }
-
 .class-position {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: center; 
 }
-
 .class-position img {
-    height: 21px;
+    height: 21px; 
 }
-
 .class-position h3 {
     color: #5f473a;
     margin: 0;
 }
-
 .text-dark {
     margin-left: 25px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; 
 }
-
 hr {
     border: 0.5px solid #c3b193;
 }
-
-/* footer */
+.city-content.active {
+    display: block; /* 顯示內容 */
+}
 footer {
-    background-color: #000;
-    color: #B7B7B7;
-    height: 40px;
-    display: flex;
+    background-color:#000000;
+    color:#B7B7B7;
+    height:40px;
+    display:flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
-}
-
-/* 響應式 */
-@media screen and (max-width: 1200px) {
-    main {
-        flex-direction: column;
-        padding: 10px 20px;
-    }
-
-    iframe {
-        min-height: 300px;
-    }
-
-    .content {
-        max-height: none;
-    }
-
-    .title h1 {
-        font-size: 45px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .index {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 10px 5vw;
-    }
-
-    .index ul {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-top: 10px;
-    }
-
-    main {
-        flex-direction: column;
-        padding: 10px 15px;
-    }
-
-    iframe {
-        min-height: 250px;
-        margin-bottom: 20px;
-    }
-
-    .title {
-        height: 25vh;
-        padding: 0 15px 10px 15px;
-    }
-
-    .title h1 {
-        font-size: 32px;
-    }
-
-    .select-city select {
-        font-size: 16px;
-    }
-
-    .class-position h3 {
-        font-size: 16px;
-    }
 }

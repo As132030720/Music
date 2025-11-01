@@ -1,123 +1,106 @@
-/* ---------- 全域重設 ---------- */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Microsoft JhengHei", sans-serif;
+    padding:0;
+    margin:0;
 }
-
-/* ---------- 導覽列 ---------- */
 .index {
     background-color: #5f473a;
-    height: 45px;
-    width: 100%;
+    height:45px;
+    width:100%;
     position: fixed;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5vw;
-    flex-wrap: wrap;
 }
 .index a.logo {
-    color: white;
+    color:white;
     font-size: 20px;
     font-weight: bolder;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
 }
 .index a.logo:hover {
-    color: #f4e8d5;
+    color:#f4e8d5;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
+    text-decoration: none;
 }
 .index ul {
-    display: flex;
-    gap: 4vw;
-    flex-wrap: wrap;
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:45px;
 }
 .index li {
-    list-style: none;
+    display:inline;
+    margin-right:4vw;    
 }
-.index a {
-    color: white;
+.index ul a {
+    color:white;
     text-decoration: none;
-    transition: 0.3s;
 }
-.index a:hover {
+.index ul a:hover {
     text-decoration: underline;
-    color: #f4e8d5;
 }
-
-/* ---------- 標題區 ---------- */
-.title {
+.title{
     height: 30vh;
     background-image: url("image/instruments.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size:cover;
     background-position: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding: 0 60px 20px 0;
 }
-.title h1 {
-    color: white;
+.title h1{
+    color:white;
     text-shadow: #5f473a 0.1em 0.1em 0.2em;
+    position:absolute;
+    right: 60px;
+    top: 75px;
+    line-height: 80px;
     font-size: 60px;
-    line-height: 1.2;
 }
 
-/* ---------- 故事內容 ---------- */
-.story {
+.story{
     background-color: #f4e8d5;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    padding: 20px 200px;
     line-height: 2;
 }
-.story h2 {
+.story h2{
     color: #5f473a;
     font-weight: bold;
     line-height: 60px;
 }
-
-/* ---------- 圖文區塊 ---------- */
 .container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
 }
 .row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; /* 列均匀分布 */
     align-items: center;
     width: 100%;
-    gap: 20px;
 }
 .col-md {
-    flex: 1 1 30%;
     text-align: center;
-    padding: 10px;
 }
 .col-md h2 {
     background-color: #5f473a;
     color: #f4e8d5;
     border-radius: 30px;
-    padding: 5px 10px;
+    padding: 1px 10px;
 }
-.fs-2 {
+.fs-2{
     color: #5f473a;
     font-weight: bolder;
 }
 img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    width: 75%;
     margin: auto;
     display: block;
 }
 
-/* ---------- Footer ---------- */
 footer {
     background-color:#000000;
     color:#B7B7B7;
@@ -128,18 +111,3 @@ footer {
     font-size: 14px;
 }
 
-/* ---------- 響應式 ---------- */
-@media screen and (max-width: 1024px) {
-    .story { padding: 20px 40px; }
-    .title h1 { font-size: 48px; }
-    .col-md { flex: 1 1 45%; }
-}
-@media screen and (max-width: 768px) {
-    .index { flex-direction: column; height: auto; padding: 10px 5vw; }
-    .index ul { flex-direction: column; gap: 10px; margin-top: 10px; }
-    .title { justify-content: center; align-items: center; height: 25vh; padding: 0 20px 20px 20px; }
-    .title h1 { font-size: 32px; text-align: center; }
-    .row { flex-direction: column; align-items: center; }
-    .col-md { flex: 1 1 100%; }
-    img { max-width: 80%; }
-}

@@ -1,160 +1,122 @@
-/* ---------- 全域重設 ---------- */
 * {
     padding:0;
     margin:0;
-    box-sizing:border-box;
-    font-family:"Microsoft JhengHei", sans-serif;
 }
-
-/* ---------- 導覽列 ---------- */
 .index {
     background-color: #5f473a;
-    height: 45px;
-    width: 100%;
+    height:45px;
+    width:100%;
     position: fixed;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5vw;
-    flex-wrap: wrap;
 }
 .index a.logo {
     color:white;
-    font-size:20px;
-    font-weight:bolder;
-    text-decoration:none;
+    font-size: 20px;
+    font-weight: bolder;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
+    text-decoration: none;
 }
 .index a.logo:hover {
     color:#f4e8d5;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
+    text-decoration: none;
 }
 .index ul {
-    display:flex;
-    gap:4vw;
-    flex-wrap: wrap;
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:45px;
 }
 .index li {
-    list-style:none;
+    display:inline;
+    margin-right:4vw;    
 }
-.index a {
+.index ul a {
     color:white;
-    text-decoration:none;
-    transition:0.3s;
+    text-decoration: none;
 }
-.index a:hover {
-    text-decoration:underline;
-    color:#f4e8d5;
+.index ul a:hover {
+    text-decoration: underline;
 }
-
-/* ---------- 標題區 ---------- */
 .title{
-    height:30vh;
-    background-image:url("image/instruments.jpg");
-    background-repeat:no-repeat;
+    height: 30vh;
+    background-image: url("image/instruments.jpg");
+    background-repeat: no-repeat;
     background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:flex-end;
-    justify-content:flex-end;
-    padding:0 60px 20px 0;
+    background-position: center;
 }
 .title h1{
     color:white;
-    text-shadow:#5f473a 0.1em 0.1em 0.2em;
-    font-size:60px;
-    line-height:1.2;
+    text-shadow: #5f473a 0.1em 0.1em 0.2em;
+    position:absolute;
+    right: 60px;
+    top: 75px;
+    line-height: 80px;
+    font-size: 60px;
 }
-
-/* ---------- 主內容 ---------- */
 main{
-    background-color:#f4e8d5;
-    text-align:center;
-    padding:30px 10%;
+    background-color: #f4e8d5;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 30px 180px;
 }
-
-/* ---------- 標題文字 ---------- */
 div.head{
-    color:#5f473a;
-    font-size:25px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    height:80px;
+    color: #5f473a;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 80px;
 }
 div.head img{
-    height:30%;
-    padding:0 10px;
+    height: 30%;
+    justify-content: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 p.head{
-    color:#5f473a;
-    font-size:20px;
-    font-weight:bold;
+    color: #5f473a;
+    font-size: 20px;
+    font-weight: bold;
 }
-
-/* ---------- 活動列表 ---------- */
-.activity-list{
+.activity-list {
     display:flex;
-    flex-wrap: wrap;
-    justify-content:center;
-    gap:20px;
-    padding-top:30px;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
 }
-.activity-list div{
-    flex:1 1 300px;
-    max-width:300px;
+.activity-list div {
+    width:300px;
     text-align:center;
-    padding:20px;
-    background-color:#fff;
-    border-radius:10px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
 }
-.activity-list div:hover{
-    transform: translateY(-5px);
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
-}
-.activity-list img{
+.activity-list img {
     width:100%;
-    height:auto;
-    border-radius:10px;
+    border-radius: 10px;;
 }
-.activity-list h3{
-    color:#5f473a;
-    font-size:20px;    
-    margin:20px 0;
+.activity-list h3 {
+    color: #5f473a;
+    font-size: 20px;    
+    margin: 20px 0;
 }
-.activity-list p{
+.activity-list p {
     font-size:14px;
-    line-height:1.6em;
+    line-height: 1.6em;
 }
-
-/* ---------- Footer ---------- */
-footer{
-    background-color:#000;
+footer {
+    background-color:#000000;
     color:#B7B7B7;
     height:40px;
     display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:14px;
-}
-
-/* ---------- 響應式 ---------- */
-@media screen and (max-width:768px){
-    .title{
-        justify-content:center;
-        align-items:center;
-        padding:0 20px 20px 20px;
-    }
-    .title h1{
-        font-size:32px;
-    }
-    .activity-list div{
-        flex:1 1 80%;
-        max-width:none;
-    }
-    main{
-        padding:20px 5%;
-    }
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
 }
