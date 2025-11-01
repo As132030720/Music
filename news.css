@@ -8,7 +8,7 @@
 /* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height:45px; /* 與會員專區一致 */
+    height:45px;
     width:100%;
     position: fixed;
     z-index: 1000;
@@ -46,40 +46,51 @@
 
 /* 🎵 標題區 */
 .title{
-    height: 30vh; /* 與會員專區相同 */
+    height: 30vh;
     background-image: url("image/instruments.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; /* 仿會員專區 */
+    background-position: center;
     position: relative;
 }
 
 .title h1{
     color: white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em; /* 仿會員專區 */
+    text-shadow: #5f473a 0.1em 0.1em 0.2em;
     position: absolute;
     right: 60px;
-    top: 75px; /* 仿會員專區 */
-    line-height: 80px; /* 仿會員專區 */
-    font-size: 60px; /* 仿會員專區 */
+    top: 75px;
+    line-height: 80px;
+    font-size: 60px;
 }
 
 /* 🎵 主內容 */
 main {
     background-color: #f4e8d5;
-    padding: 60px 10vw;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* 🎵 新聞列表 */
 .news-list {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
+    width: 80%;
+    max-width: 1000px;
 }
 
 .news-list-content {
-    padding: 40px 30px;
-    text-align: right;
+    padding: 30px 40px;
+    margin-bottom: 40px;
+    text-align: left; /* 改成靠左 */
+    background-color: #fff9f0;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.news-list-content:hover {
+    transform: translateY(-5px);
 }
 
 .news-list-content h2 {
@@ -88,22 +99,22 @@ main {
     border-radius: 25px;
     padding: 8px 20px;
     display: inline-block;
-    font-size: 30px; /* 仿會員專區標題大小 */
-    margin-bottom: 15px;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
 .news-list-content p {
     margin-top: 10px;
-    line-height: 1.9;
+    line-height: 1.8;
     color: #3c2e26;
-    font-size: 18px; /* 仿會員專區文字大小 */
+    font-size: 18px;
 }
 
 /* 🎵 分隔線 */
 hr {
     border: none;
     border-top: 2px dashed #c3b193;
-    margin: 10px 5%;
+    margin: 40px 0;
 }
 
 /* 🎵 頁尾 */
