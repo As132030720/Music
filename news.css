@@ -99,10 +99,12 @@ main {
 }
 
 .news-list-content p {
-    margin-left: 20px;
+    margin-left: 20px; /* 可以保留或移除 */
     line-height: 1.8;
     color: #3c2e26;
+    text-align: right; /* 文字靠右 */
 }
+
 
 hr {
     border: none;
@@ -126,4 +128,5 @@ hr {
         font-size: 40px;
     }
 }
+
 
