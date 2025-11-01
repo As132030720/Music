@@ -68,7 +68,7 @@
             background-position: center;
             margin-top: 45px; /* 避免被固定導覽列遮住 */
             display: flex;
-            justify-content: flex-end; /* 文字靠右 */
+            justify-content: flex-end; /* 標題靠右 */
             align-items: center;
             padding-right: 10vw; /* 距右邊距 */
         }
@@ -98,21 +98,22 @@
             padding: 30px;
         }
 
+        /* 保持新聞標題和文字左對齊 */
         .news-list-content h2 {
             background-color: #c3b193;
             color: #5f473a;
             border-radius: 30px;
             padding: 5px 20px;
             display: inline-block;
-            float: right; /* 標題靠右 */
-            text-align: right;
+            float: none;
+            text-align: left;
         }
 
         .news-list-content p {
+            margin-left: 20px;
             line-height: 1.8;
             color: #3c2e26;
-            text-align: right; /* 文字靠右 */
-            margin: 0; /* 移除左側縮排 */
+            text-align: left;
         }
 
         hr {
@@ -136,10 +137,6 @@
             }
             .title h1 {
                 font-size: 40px;
-            }
-            .news-list-content h2 {
-                float: none;
-                text-align: right;
             }
         }
     </style>
