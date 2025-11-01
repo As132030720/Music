@@ -1,83 +1,133 @@
+/* 全域重設 */
 * {
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft JhengHei", sans-serif;
 }
+
+/* 導覽列 */
 .index {
     background-color: #5f473a;
-    height:45px;
-    width:100%;
+    height: 45px;
+    width: 100%;
     position: fixed;
+    top: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
 }
+
 .index a.logo {
-    color:white;
+    color: white;
     font-size: 20px;
     font-weight: bolder;
-    position:absolute;
-    left: 80px;
-    top:0;
-    line-height: 45px;
     text-decoration: none;
 }
+
 .index a.logo:hover {
-    color:#f4e8d5;
-    position:absolute;
-    left: 80px;
-    top:0;
-    line-height: 45px;
+    color: #f4e8d5;
+}
+
+.index nav ul {
+    display: flex;
+    gap: 4vw;
+}
+
+.index nav li {
+    list-style: none;
+}
+
+.index nav a {
+    color: white;
     text-decoration: none;
+    transition: 0.3s;
 }
-.index ul {
-    position:absolute;
-    right:5vw;
-    top:0;
-    line-height:45px;
-}
-.index li {
-    display:inline;
-    margin-right:4vw;    
-}
-.index ul a {
-    color:white;
-    text-decoration: none;
-}
-.index ul a:hover {
+
+.index nav a:hover {
     text-decoration: underline;
+    color: #f4e8d5;
 }
-.title{
+
+/* 標題區 */
+.title {
     height: 30vh;
     background-image: url("image/instruments.jpg");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 60px 20px 0;
 }
-.title h1{
-    color:white;
+
+.title h1 {
+    color: white;
     text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position:absolute;
-    right: 60px;
-    top: 75px;
-    line-height: 80px;
     font-size: 60px;
+    line-height: 1.2;
 }
-main{
+
+/* 主內容 */
+main {
     background-color: #f4e8d5;
     padding: 10px 200px;
+    margin-top: 30vh;
 }
-.news-list{
-    border-color: #5f473a;
-    border: 3px;
-    line-height: 2;
+
+/* 新聞列表 */
+.news-list {
+    border: 3px solid #5f473a;
 }
-.news-list-content{
+
+.news-list-content {
     padding: 30px;
 }
-.news-list-content h2{
+
+.news-list-content h2 {
     background-color: #c3b193;
     color: #5f473a;
     border-radius: 30px;
-    padding: 3px 20px;
+    padding: 10px 20px;
+    transition: 0.3s;
 }
-.news-list-content p{
+
+.news-list-content h2:hover {
+    background-color: #b9a67f;
+    cursor: pointer;
+}
+
+.news-list-content p {
     margin-left: 40px;
+    line-height: 2;
+    letter-spacing: 0.5px;
+}
+
+/* 響應式 */
+@media screen and (max-width: 1200px){
+    main {
+        padding: 10px 50px;
+    }
+    .title h1 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .index {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 5vw;
+    }
+    .index nav ul {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    main {
+        padding: 10px 20px;
+    }
 }
