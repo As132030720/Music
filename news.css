@@ -77,7 +77,7 @@
 /* 🎵 主內容 */
 main {
     background-color: #f4e8d5;
-    padding: 60px 10vw;
+    padding: 60px 10vw 80px; /* 底部加大留白，避免文字太貼 footer */
 }
 
 /* 🎵 新聞列表 */
@@ -122,13 +122,25 @@ hr {
 footer {
     background-color: #000000;
     color: #B7B7B7;
-    height: 40px;
+    height: 60px; /* 黑色條稍微加高 */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start; /* 讓文字偏上 */
+    padding-top: 10px; /* 讓文字離底部有距離 */
     font-size: 14px;
+    position: relative;
 }
 
+/* 🎵 若內容不足，也讓 footer 固定在最下方 */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body > main {
+    flex: 1;
+}
 
 /* 🎵 RWD 響應式設計 */
 @media (max-width: 992px) {
@@ -145,7 +157,7 @@ footer {
     }
 
     main {
-        padding: 40px 5vw;
+        padding: 40px 5vw 70px;
     }
 }
 
@@ -175,6 +187,11 @@ footer {
         font-size: 15px;
         line-height: 1.8;
     }
+
+    footer {
+        height: 55px;
+        padding-top: 8px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -189,6 +206,7 @@ footer {
 
     footer {
         font-size: 12px;
+        height: 50px;
+        padding-top: 6px;
     }
 }
-
