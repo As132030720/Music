@@ -108,7 +108,8 @@ main {
     outline:none;
     transition: all 0.3s ease;
     letter-spacing:0.5px;
-    line-height:1.4em;
+    line-height:1.6em;
+    font-size:16px;
 }
 .member-form input::placeholder,
 .member-form textarea::placeholder { color:#eee; font-weight:400; letter-spacing:0.5px; }
@@ -125,13 +126,13 @@ main {
     color:#eee;
     display:inline-flex;
     align-items:center;
-    gap:5px;
-    font-size:14px;
+    gap:8px;
+    font-size:15px;
     cursor:pointer;
     letter-spacing:0.5px;
 }
 .member-form input[type="checkbox"] {
-    width:18px; height:18px;
+    width:20px; height:20px;
     accent-color:#c3b193;
 }
 
@@ -139,7 +140,7 @@ main {
 .member-form button {
     width: 60%;
     margin: 0 auto;
-    padding:14px;
+    padding:16px;
     border:2px solid #eee;
     border-radius:30px;
     background-color: transparent;
@@ -149,6 +150,7 @@ main {
     overflow:hidden;
     position: relative;
     transition: all 0.3s;
+    font-size:16px;
 }
 .member-form button:hover {
     color:#5f473a;
@@ -177,8 +179,8 @@ main {
 /* ---------- Music Note ---------- */
 .music-note {
     position:absolute;
-    width:18px;
-    height:18px;
+    width:20px;
+    height:20px;
     background:url('note.svg') no-repeat center/contain;
     animation: float 1s ease-out forwards;
     pointer-events:none;
@@ -261,13 +263,16 @@ function spawnNote(x, y){
     note.style.top = y + 'px';
     note.style.transform = `rotate(${Math.random()*360}deg) scale(${0.8 + Math.random()*0.5})`;
     form.appendChild(note);
-    setTimeout(()=> note.remove(), 1000);
+    setTimeout(()=> note.remove(), 1200);
 }
 form.addEventListener('mousemove', e => spawnNote(e.offsetX, e.offsetY));
 const inputs = form.querySelectorAll('input, select, textarea');
 inputs.forEach(input=>{
     input.addEventListener('mouseenter', e=>{
-        spawnNote(e.offsetX || 0, e.offsetY || 0);
+        const rect = input.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        spawnNote(x, y);
     });
 });
 
