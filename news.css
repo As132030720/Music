@@ -51,16 +51,18 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center;
+    position: relative;
 }
 
 .title h1{
     color:white;
     text-shadow: #5f473a 0.1em 0.1em 0.2em;
     position:absolute;
-    right: 60px;
+    right: 60px; /* 靠右 */
     top: 75px;
     line-height: 80px;
     font-size: 60px;
+    text-align: right; /* 文字靠右 */
 }
 
 /* 🎵 主內容 */
@@ -135,5 +137,6 @@ footer {
     }
     .title h1{
         font-size: 40px;
+        text-align: right; /* 小螢幕也靠右 */
     }
 }
