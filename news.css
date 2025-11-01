@@ -8,19 +8,18 @@
 /* 導覽列 */
 .index {
     background-color: #5f473a;
-    height:60px;
+    height:45px;
     width:100%;
     position: fixed;
-    top:0;
     z-index: 1000;
     display: flex;
     align-items: center;
-    padding: 0 5vw;
+    padding: 0 80px;
 }
 
 .index a.logo {
     color:white;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bolder;
     text-decoration: none;
 }
@@ -36,7 +35,7 @@
 }
 
 .index li {
-    margin-left: 3vw;    
+    margin-left: 4vw;    
 }
 
 .index ul a {
@@ -57,7 +56,7 @@
     background-size:cover;
     background-position: center;
     position: relative;
-    margin-top: 60px; /* 避開固定導覽列 */
+    margin-top: 45px; /* 導覽列高度 */
 }
 
 .title h1{
