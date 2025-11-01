@@ -65,13 +65,14 @@
     padding-right: 50px; /* 與右邊距離 */
 }
 
-.title h1 {
-    color: white;
+.title h1{
+    color:white;
+    text-shadow: #5f473a 0.1em 0.1em 0.2em;
+    position:absolute;
+    right: 60px;
+    top: 75px;
+    line-height: 80px;
     font-size: 60px;
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    background-color: rgba(95, 71, 58, 0.4);
-    padding: 10px 30px;
-    border-radius: 15px;
 }
 
 /* 🎵 主內容 */
@@ -181,3 +182,4 @@ footer {
         font-size: 12px;
     }
 }
+
