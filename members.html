@@ -1,109 +1,303 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>會員專區</title>
-    <link rel="stylesheet" href="members.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>會員專區 | Q比音樂教育機構</title>
+<style>
+/* ---------- Reset ---------- */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans TC', sans-serif; }
+body { background-color: #f4e8d5; color:#333; overflow-x:hidden; }
+
+/* ---------- Header / Title ---------- */
+.index {
+    background-color: #5f473a;
+    height:60px;
+    width:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 5vw;
+}
+.index a.logo { color:white; font-size:22px; font-weight:bolder; text-decoration:none; }
+.index a.logo:hover { color:#f4e8d5; transition:0.3s; }
+.index nav ul { list-style:none; display:flex; gap:80px; }
+.index nav ul li a {
+    color:white; text-decoration:none; font-weight:500; font-size:16px; transition:0.3s; letter-spacing:1px;
+}
+.index nav ul li a:hover { text-decoration: underline; }
+
+.title {
+    height: 35vh;
+    background-image: url("image/instruments.jpg");
+    background-size: cover;
+    background-position: center;
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 120px 60px 0 0;
+    position: relative;
+}
+.title h1 { font-size: 60px; color:white; text-shadow: 2px 2px 10px #5f473a; letter-spacing:1px; }
+
+/* ---------- Main ---------- */
+main {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height: 80vh;
+    padding-top:50px;
+    position: relative;
+    z-index:1;
+}
+
+/* ---------- Particle Canvas ---------- */
+#particle-canvas {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    pointer-events:none;
+}
+
+/* ---------- Member Form ---------- */
+.member-form {
+    position: relative;
+    width: 480px;
+    padding: 50px 40px;
+    background-color: rgba(95,71,58,0.95);
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+    overflow:hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index:2;
+}
+.member-form:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+}
+.member-form h1 {
+    color:#eee;
+    font-size:36px;
+    text-align:center;
+    text-shadow: 1px 1px 8px #000;
+    letter-spacing:1.2px;
+}
+
+/* ---------- Inputs / Select / Textarea ---------- */
+.member-form input,
+.member-form select,
+.member-form textarea {
+    width:100%;
+    padding:14px 16px;
+    border-radius:15px;
+    border:2px solid #eee;
+    background-color: rgba(255,255,255,0.05);
+    color:#eee;
+    font-weight:500;
+    outline:none;
+    transition: all 0.3s ease;
+    letter-spacing:0.5px;
+    line-height:1.6em;
+    font-size:16px;
+}
+.member-form input::placeholder,
+.member-form textarea::placeholder { color:#eee; font-weight:400; letter-spacing:0.5px; }
+.member-form input:hover,
+.member-form select:hover,
+.member-form textarea:hover {
+    border-color:#c3b193;
+    background-color: rgba(255,255,255,0.15);
+}
+
+/* ---------- Button ---------- */
+.member-form button {
+    width: 40%;
+    margin: 0 auto;
+    padding:16px;
+    border:2px solid #eee;
+    border-radius:30px;
+    background-color: transparent;
+    color:#eee;
+    font-weight:bold;
+    cursor:pointer;
+    overflow:hidden;
+    position: relative;
+    transition: all 0.3s;
+    font-size:16px;
+}
+.member-form button:hover {
+    color:#5f473a;
+    background-color:#eee;
+}
+.member-form button::after {
+    content:'';
+    position:absolute;
+    width:0;
+    height:0;
+    background-color: #c3b193;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border-radius:50%;
+    transition: all 0.5s ease-out;
+    z-index:0;
+}
+.member-form button:active::after {
+    width:1200px;
+    height:1200px;
+    opacity:0;
+    transition: all 0.5s ease-out;
+}
+
+/* ---------- Music Note ---------- */
+.music-note {
+    position:absolute;
+    width:24px;
+    height:24px;
+    background:url('image/note.png') no-repeat center/contain;
+    animation: float 1.2s ease-out forwards;
+    pointer-events:none;
+    transform-origin:center;
+}
+@keyframes float {
+    0% { transform: translateY(0) scale(0); opacity:1; }
+    50% { transform: translateY(-30px) scale(1.3); opacity:0.8; }
+    100% { transform: translateY(-60px) scale(1); opacity:0; }
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background-color:#000;
+    color:#B7B7B7;
+    height:50px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:14px;
+    margin-top:50px;
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="index">
-        <a class="logo" href="index.html">Q比音樂教育機構<a>
+
+<header>
+    <div class="index">
+        <a class="logo" href="index.html">Q比音樂教育機構</a>
         <nav>
-          <ul>
-              <li><a href="news.html" target="_blank">最新消息</a></li>
-              <li><a href="story.html" target="_blank">品牌故事</a></li>
-              <li><a href="instruments.html" target="_blank">教授樂器</a></li>
-              <li><a href="members.html" target="_blank">會員專區</a></li>                
-          </ul>
-        </nav> 
-        </div> 
-        <div class="title">
-          <h1>會員專區</h1>
-        </div> 
-    </header>
+            <ul>
+                <li><a href="news.html">最新消息</a></li>
+                <li><a href="story.html">品牌故事</a></li>
+                <li><a href="instruments.html">教授樂器</a></li>
+                <li><a href="members.html">會員專區</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="title"><h1>會員專區</h1></div>
+</header>
 
-    <main>
-        <div class="login">
-            <h1>LOGIN</h1>
-            <form action="">
-                <input type="text" placeholder="帳號">
-                <input type="text" placeholder="密碼">
-                <button>登入</button>
-            </form>
-        </div>
-        <script>
-            window.onload = function () {
-        //獲取login
-        let login = document.querySelector('.login')  
-        let span
-        let inTime, outTime
-        let isIn = true //默認打開
-        let isOut    
-        //滑鼠進入
-        login.addEventListener('mouseenter', function (e) {
-            isOut = false//預先關閉，如果沒有進入if，就不會到滑鼠離開的if
-            if (isIn) {
-                inTime = new Date().getTime()
-    
-                //生成span元素加進login的末尾
-                span = document.createElement('span')
-                login.appendChild(span)
-    
-                //span去使用in動畫
-                span.style.animation = 'in .5s ease-out forwards'
-    
-                //計算 top 和 left 值，追蹤滑鼠位置
-                let top = e.clientY - e.target.offsetTop
-                let left = e.clientX - e.target.offsetLeft
-    
-                span.style.top = top + 'px'
-                span.style.left = left + 'px'
-    
-                isIn = false
-                isOut = true
-    
-            }
-        })
- 
-        //滑鼠離開
-        login.addEventListener('mouseleave', function (e) {
-            if (isOut) {
-                outTime = new Date().getTime()
-                let passTime = outTime - inTime
-    
-                if (passTime < 500) {
-                    setTimeout(mouseleave, 500 - passTime) //以經過的時間就不要
-                }
-                else {
-                    mouseleave()
-                }
-            }
-    
-            function mouseleave() {
-                span.style.animation = 'out .5s ease-out forwards'
-    
-                //計算 top 和 left 值，追蹤滑鼠位置
-                let top = e.clientY - e.target.offsetTop
-                let left = e.clientX - e.target.offsetLeft
-    
-                span.style.top = top + 'px'
-                span.style.left = left + 'px'
-    
-                //定時器
-                setTimeout(function () {
-                    login.removeChild(span)
-                    isIn = true //執行完滑鼠離開才打開
-                }, 500)
-            }
-            })
-        }
-        </script>
-    </main>
+<main>
+    <canvas id="particle-canvas"></canvas>
+    <div class="member-form">
+        <h1>會員資料填寫</h1>
+        <form>
+            <input type="text" placeholder="姓名">
+            <input type="text" placeholder="帳號">
+            <input type="password" placeholder="密碼">
+            <input type="email" placeholder="電子郵件">
+            <input type="text" placeholder="電話">
 
-    <footer>
-        <p>Copyright © 2024 Q比音樂教育機構 All Rights Reserved.Created by 黃柏郡</p>
-    </footer>
+            <!-- 單選框：擅長樂器 + 課程 -->
+            <select id="instrument-select">
+                <option value="">擅長樂器 / 課程</option>
+                <option value="piano_beginner">鋼琴 - 初級課程</option>
+                <option value="piano_intermediate">鋼琴 - 中級課程</option>
+                <option value="piano_advanced">鋼琴 - 高級課程</option>
+                <option value="violin_beginner">小提琴 - 初級課程</option>
+                <option value="violin_intermediate">小提琴 - 中級課程</option>
+                <option value="violin_advanced">小提琴 - 高級課程</option>
+                <option value="guitar_beginner">吉他 - 初級課程</option>
+                <option value="guitar_intermediate">吉他 - 中級課程</option>
+                <option value="guitar_advanced">吉他 - 高級課程</option>
+            </select>
+
+            <textarea placeholder="備註" rows="3"></textarea>
+            <button type="submit">提交</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+<p>Copyright © 2025 Q比音樂教育機構 All Rights Reserved. Created By 黃柏郡</p>
+</footer>
+
+<script>
+// ------------------ 小音符 ------------------
+const form = document.querySelector('.member-form');
+function spawnNote(x, y){
+    const note = document.createElement('span');
+    note.className = 'music-note';
+    note.style.left = x + 'px';
+    note.style.top = y + 'px';
+    note.style.transform = `rotate(${Math.random()*360}deg) scale(${0.8 + Math.random()*0.5})`;
+    note.style.filter = `hue-rotate(${Math.random()*360}deg)`; // 彩色旋轉
+    form.appendChild(note);
+    setTimeout(()=> note.remove(), 1500);
+}
+form.addEventListener('mousemove', e => spawnNote(e.offsetX, e.offsetY));
+const inputs = form.querySelectorAll('input, select, textarea');
+inputs.forEach(input=>{
+    input.addEventListener('mouseenter', e=>{
+        const rect = input.getBoundingClientRect();
+        spawnNote(e.clientX - rect.left, e.clientY - rect.top);
+    });
+});
+
+// ------------------ 粒子背景 ------------------
+const canvas = document.getElementById('particle-canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const particles = [];
+for(let i=0;i<80;i++){
+    particles.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*2+1,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+    });
+}
+function animate(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+        p.x += p.dx;
+        p.y += p.dy;
+        if(p.x>canvas.width)p.x=0;
+        if(p.x<0)p.x=canvas.width;
+        if(p.y>canvas.height)p.y=0;
+        if(p.y<0)p.y=canvas.height;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,255,255,0.3)';
+        ctx.fill();
+    });
+    requestAnimationFrame(animate);
+}
+animate();
+window.addEventListener('resize', ()=>{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
 </body>
 </html>
