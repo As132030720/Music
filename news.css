@@ -8,7 +8,7 @@
 /* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height:45px;
+    height:30px;
     width:100%;
     position: fixed;
     z-index: 1000;
@@ -116,3 +116,4 @@ footer {
     align-items: center;
     font-size: 14px;
 }
+
