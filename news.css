@@ -8,7 +8,7 @@
 /* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height:30px;
+    height:45px; /* 與會員專區一致 */
     width:100%;
     position: fixed;
     z-index: 1000;
@@ -46,22 +46,22 @@
 
 /* 🎵 標題區 */
 .title{
-    height: 30vh; /* 仿會員專區 */
+    height: 30vh; /* 與會員專區相同 */
     background-image: url("image/instruments.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
+    background-position: center; /* 仿會員專區 */
     position: relative;
 }
+
 .title h1{
-    color:white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position:absolute;
+    color: white;
+    text-shadow: #5f473a 0.1em 0.1em 0.2em; /* 仿會員專區 */
+    position: absolute;
     right: 60px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 60px;
-    text-align: right;
+    top: 75px; /* 仿會員專區 */
+    line-height: 80px; /* 仿會員專區 */
+    font-size: 60px; /* 仿會員專區 */
 }
 
 /* 🎵 主內容 */
@@ -72,14 +72,14 @@ main {
 
 /* 🎵 新聞列表 */
 .news-list {
-    background-color: transparent; /* 無白色背景 */
+    background-color: transparent;
     border: none;
     box-shadow: none;
 }
 
 .news-list-content {
     padding: 40px 30px;
-    text-align: right; /* 文字靠右 */
+    text-align: right;
 }
 
 .news-list-content h2 {
@@ -88,7 +88,7 @@ main {
     border-radius: 25px;
     padding: 8px 20px;
     display: inline-block;
-    font-size: 22px;
+    font-size: 30px; /* 仿會員專區標題大小 */
     margin-bottom: 15px;
 }
 
@@ -96,7 +96,7 @@ main {
     margin-top: 10px;
     line-height: 1.9;
     color: #3c2e26;
-    font-size: 16px;
+    font-size: 18px; /* 仿會員專區文字大小 */
 }
 
 /* 🎵 分隔線 */
@@ -116,4 +116,3 @@ footer {
     align-items: center;
     font-size: 14px;
 }
-
