@@ -54,16 +54,20 @@
     position: relative;
 }
 
-.title h1{
-    color:white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position:absolute;
-    right: 60px; /* 靠右 */
-    top: 75px;
-    line-height: 80px;
+.title h1 {
+    color: white;
     font-size: 60px;
-    text-align: right; /* 文字靠右 */
+    text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    background-color: rgba(95, 71, 58, 0.4);
+    padding: 10px 30px;
+    border-radius: 15px;
+
+    /* 新增靠右 */
+    text-align: right;
+    margin-left: auto;
+    margin-right: 50px; /* 調整與右邊距離 */
 }
+
 
 /* 🎵 主內容 */
 main {
@@ -140,3 +144,4 @@ footer {
         text-align: right; /* 小螢幕也靠右 */
     }
 }
+
