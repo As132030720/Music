@@ -112,15 +112,27 @@ main {
 }
 .member-form input::placeholder,
 .member-form textarea::placeholder { color:#eee; font-weight:400; letter-spacing:0.5px; }
-.member-form input:focus,
-.member-form select:focus,
-.member-form textarea:focus {
+.member-form input:hover,
+.member-form select:hover,
+.member-form textarea:hover {
     border-color:#c3b193;
-    box-shadow: 0 0 20px #c3b193;
     background-color: rgba(255,255,255,0.15);
 }
 
-/* ---------- Checkbox / Course ---------- */
+/* ---------- 擅長樂器 + 課程 ---------- */
+.instrument-block {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    align-items:center;
+    transition: all 0.3s;
+}
+.instrument-block:hover {
+    background-color: rgba(255,255,255,0.05);
+    border-radius:15px;
+    padding:10px;
+}
+
 .checkbox-group {
     display:flex;
     justify-content:center;
@@ -151,7 +163,7 @@ main {
 
 /* ---------- Button ---------- */
 .member-form button {
-    width: 65%;
+    width: 40%;
     margin: 0 auto;
     padding:16px;
     border:2px solid #eee;
@@ -245,17 +257,22 @@ footer {
             <input type="password" placeholder="密碼">
             <input type="email" placeholder="電子郵件">
             <input type="text" placeholder="電話">
-            <select>
-                <option value="">擅長樂器</option>
-                <option value="piano">鋼琴</option>
-                <option value="violin">小提琴</option>
-                <option value="guitar">吉他</option>
-            </select>
-            <div class="checkbox-group">
-                <label><input type="checkbox" name="course" value="beginner"> 初級課程</label>
-                <label><input type="checkbox" name="course" value="intermediate"> 中級課程</label>
-                <label><input type="checkbox" name="course" value="advanced"> 高級課程</label>
+
+            <!-- 擅長樂器 + 初中高課程 -->
+            <div class="instrument-block">
+                <select>
+                    <option value="">擅長樂器</option>
+                    <option value="piano">鋼琴</option>
+                    <option value="violin">小提琴</option>
+                    <option value="guitar">吉他</option>
+                </select>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="course" value="beginner"> 初級課程</label>
+                    <label><input type="checkbox" name="course" value="intermediate"> 中級課程</label>
+                    <label><input type="checkbox" name="course" value="advanced"> 高級課程</label>
+                </div>
             </div>
+
             <textarea placeholder="備註" rows="3"></textarea>
             <button type="submit">提交</button>
         </form>
