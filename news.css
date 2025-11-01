@@ -1,31 +1,32 @@
 * {
     padding:0;
     margin:0;
-    box-sizing: border-box;
-    font-family: "Noto Sans TC", sans-serif;
 }
 
-/* 導覽列 */
 .index {
     background-color: #5f473a;
     height:45px;
     width:100%;
     position: fixed;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding: 0 80px;
 }
-
 .index a.logo {
     color:white;
     font-size: 20px;
     font-weight: bolder;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
 }
-
 .index a.logo:hover {
     color:#f4e8d5;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
+    text-decoration: none;
 }
 
 .index ul {
@@ -123,3 +124,4 @@ footer {
     align-items: center;
     font-size: 14px;
 }
+
