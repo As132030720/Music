@@ -25,7 +25,7 @@ body { background-color: #f4e8d5; color:#333; overflow-x:hidden; }
 }
 .index a.logo { color:white; font-size:22px; font-weight:bolder; text-decoration:none; }
 .index a.logo:hover { color:#f4e8d5; transition:0.3s; }
-.index nav ul { list-style:none; display:flex; gap:80px; }
+.index nav ul { list-style:none; display:flex; gap:40px; flex-wrap:wrap; }
 .index nav ul li a {
     color:white; text-decoration:none; font-weight:500; font-size:16px; transition:0.3s; letter-spacing:1px;
 }
@@ -39,7 +39,7 @@ body { background-color: #f4e8d5; color:#333; overflow-x:hidden; }
     display:flex;
     justify-content: flex-end;
     align-items: flex-start;
-    padding: 120px 60px 0 0;
+    padding: 120px 60px 0 20px;
     position: relative;
 }
 .title h1 { font-size: 60px; color:white; text-shadow: 2px 2px 10px #5f473a; letter-spacing:1px; }
@@ -53,6 +53,7 @@ main {
     padding-top:50px;
     position: relative;
     z-index:1;
+    flex-direction: column;
 }
 
 /* ---------- Particle Canvas ---------- */
@@ -69,14 +70,15 @@ main {
 /* ---------- Member Form ---------- */
 .member-form {
     position: relative;
-    width: 480px;
-    padding: 50px 40px;
+    width: 100%;
+    max-width: 480px;
+    padding: 40px 30px;
     background-color: rgba(95,71,58,0.95);
     border-radius: 25px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     display:flex;
     flex-direction:column;
-    gap:25px;
+    gap:20px;
     overflow:hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     z-index:2;
@@ -87,10 +89,10 @@ main {
 }
 .member-form h1 {
     color:#eee;
-    font-size:36px;
+    font-size:32px;
     text-align:center;
     text-shadow: 1px 1px 8px #000;
-    letter-spacing:1.2px;
+    letter-spacing:1px;
 }
 
 /* ---------- Inputs / Select / Textarea ---------- */
@@ -98,8 +100,8 @@ main {
 .member-form select,
 .member-form textarea {
     width:100%;
-    padding:14px 16px;
-    border-radius:15px;
+    padding:12px 14px;
+    border-radius:12px;
     border:2px solid #eee;
     background-color: rgba(255,255,255,0.05);
     color:#eee;
@@ -107,11 +109,10 @@ main {
     outline:none;
     transition: all 0.3s ease;
     letter-spacing:0.5px;
-    line-height:1.6em;
     font-size:16px;
 }
 .member-form input::placeholder,
-.member-form textarea::placeholder { color:#eee; font-weight:400; letter-spacing:0.5px; }
+.member-form textarea::placeholder { color:#eee; font-weight:400; }
 .member-form input:hover,
 .member-form select:hover,
 .member-form textarea:hover {
@@ -121,16 +122,15 @@ main {
 
 /* ---------- Button ---------- */
 .member-form button {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
-    padding:16px;
+    padding:14px;
     border:2px solid #eee;
     border-radius:30px;
     background-color: transparent;
     color:#eee;
     font-weight:bold;
     cursor:pointer;
-    overflow:hidden;
     position: relative;
     transition: all 0.3s;
     font-size:16px;
@@ -186,6 +186,22 @@ footer {
     font-size:14px;
     margin-top:50px;
 }
+
+/* ---------- 響應式 ---------- */
+@media screen and (max-width:1024px){
+    .title { padding:100px 40px 0 20px; }
+    .title h1 { font-size:48px; }
+    .member-form h1 { font-size:28px; }
+    .member-form button { font-size:14px; }
+}
+
+@media screen and (max-width:768px){
+    .index { flex-direction:column; height:auto; padding:10px 5vw; align-items:flex-start; }
+    .index nav ul { flex-direction:column; gap:10px; margin-top:10px; }
+    .title { height:25vh; padding:60px 20px 0 20px; justify-content:center; align-items:center; }
+    .title h1 { font-size:28px; text-align:center; }
+    .member-form { width:90%; padding:30px 20px; }
+}
 </style>
 </head>
 <body>
@@ -215,8 +231,6 @@ footer {
             <input type="password" placeholder="密碼">
             <input type="email" placeholder="電子郵件">
             <input type="text" placeholder="電話">
-
-            <!-- 單選框：擅長樂器 + 課程 -->
             <select id="instrument-select">
                 <option value="">擅長樂器 / 課程</option>
                 <option value="piano_beginner">鋼琴 - 初級課程</option>
@@ -229,7 +243,6 @@ footer {
                 <option value="guitar_intermediate">吉他 - 中級課程</option>
                 <option value="guitar_advanced">吉他 - 高級課程</option>
             </select>
-
             <textarea placeholder="備註" rows="3"></textarea>
             <button type="submit">提交</button>
         </form>
@@ -249,7 +262,7 @@ function spawnNote(x, y){
     note.style.left = x + 'px';
     note.style.top = y + 'px';
     note.style.transform = `rotate(${Math.random()*360}deg) scale(${0.8 + Math.random()*0.5})`;
-    note.style.filter = `hue-rotate(${Math.random()*360}deg)`; // 彩色旋轉
+    note.style.filter = `hue-rotate(${Math.random()*360}deg)`;
     form.appendChild(note);
     setTimeout(()=> note.remove(), 1500);
 }
@@ -299,5 +312,6 @@ window.addEventListener('resize', ()=>{
     canvas.height = window.innerHeight;
 });
 </script>
+
 </body>
 </html>
