@@ -1,71 +1,81 @@
+/* ---------- 全域重設 ---------- */
 * {
-    padding:0;
-    margin:0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft JhengHei", sans-serif;
 }
+
+/* ---------- 導覽列 ---------- */
 .index {
     background-color: #5f473a;
-    height:45px;
-    width:100%;
+    height: 45px;
+    width: 100%;
     position: fixed;
+    top: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    flex-wrap: wrap;
 }
 .index a.logo {
-    color:white;
+    color: white;
     font-size: 20px;
     font-weight: bolder;
-    position:absolute;
-    left: 80px;
-    top:0;
-    line-height: 45px;
     text-decoration: none;
 }
 .index a.logo:hover {
-    color:#f4e8d5;
-    position:absolute;
-    left: 80px;
-    top:0;
-    line-height: 45px;
-    text-decoration: none;
+    color: #f4e8d5;
 }
 .index ul {
-    position:absolute;
-    right:5vw;
-    top:0;
-    line-height:45px;
+    display: flex;
+    gap: 4vw;
+    flex-wrap: wrap;
 }
 .index li {
-    display:inline;
-    margin-right:4vw;    
+    list-style: none;
 }
-.index ul a {
-    color:white;
+.index a {
+    color: white;
     text-decoration: none;
+    transition: 0.3s;
 }
-.index ul a:hover {
+.index a:hover {
     text-decoration: underline;
+    color: #f4e8d5;
 }
-.title{
+
+/* ---------- 標題區 ---------- */
+.title {
     height: 30vh;
     background-image: url("image/instruments.jpg");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0 60px 20px 0;
 }
-.title h1{
-    color:white;
+.title h1 {
+    color: white;
     text-shadow: #5f473a 0.1em 0.1em 0.2em;
-    position:absolute;
-    right: 60px;
-    top: 75px;
-    line-height: 80px;
     font-size: 60px;
+    line-height: 1.2;
 }
-main{
+
+/* ---------- 主內容 ---------- */
+main {
     background-color: #f4e8d5;
-    justify-content: center;
-    padding: 30px 180px;
+    max-width: 1200px;
+    margin: calc(30vh + 10px) auto 50px auto;
+    padding: 20px;
 }
-div.head{
+
+/* ---------- 標題文字 ---------- */
+div.head {
     color: #5f473a;
     display: flex;
     font-size: 25px;
@@ -74,83 +84,101 @@ div.head{
     text-align: center;
     height: 80px;
 }
-div.head img{
-    height: 30%;
-    justify-content: center;
-    padding-left: 10px;
-    padding-right: 10px;
+div.head img {
+    max-height: 100%;
+    padding: 0 10px;
 }
-p.head{
+p.head {
     color: #5f473a;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
-table.intro{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+/* ---------- 表格 ---------- */
+table.intro {
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
 }
-th{
+th {
     padding: 10px 20px;
-    background-color:  rgba(227, 152, 149);
+    background-color: rgba(227, 152, 149);
     color: #f4e8d5;
 }
-td{
+td {
     padding: 10px 20px;
     background-color: #c3b193;
     color: #5f473a;
     font-weight: bold;
 }
-.content{
+
+/* ---------- 左右內容區 ---------- */
+.content {
     display: flex;
-    padding: 20px 0px;
-    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
     justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
 }
-.content-title{
+.content-title {
     color: #5f473a;
-    display: flex;
     font-size: 18px;
-    justify-content: center;
-    align-items: center;
     text-align: center;
     height: 50px;
+    width: 100%;
 }
-.content-title img{
+.content-title img {
     height: 15px;
     width: 45%;
 }
-#head{
+#head {
     color: #5f473a;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
     text-shadow: #c3b193 0.1em 0.1em;
 }
-.left img{
-    width: 200px;
-    padding: 30px;
+.left img {
+    width: 100%;
+    max-width: 200px;
 }
-.right p.font-1{
+.right p.font-1 {
     font-size: 18px;
     font-weight: bold;
     color: #f4e8d5;
     background-color: rgba(227, 152, 149);
-    padding: 1px 20px;
+    padding: 5px 20px;
     border-radius: 20px;
-    width: 50%;
+    max-width: 90%;
+    margin: 10px 0;
+}
+.right p {
+    padding: 10px 0 10px 20px;
+}
 
-}
-.right p{
-    padding: 10px 0px 10px 20px;
-}
+/* ---------- Footer ---------- */
 footer {
-    background-color:#000000;
-    color:#B7B7B7;
-    height:40px;
-    display:flex;
+    background-color: #000;
+    color: #B7B7B7;
+    height: 40px;
+    display: flex;
     justify-content: center;
     align-items: center;
     font-size: 14px;
+}
+
+/* ---------- 響應式 ---------- */
+@media screen and (max-width: 1024px){
+    main { padding: 20px 40px; }
+    .title h1 { font-size: 48px; }
+}
+@media screen and (max-width: 768px){
+    .index { flex-direction: column; height: auto; padding: 10px 5vw; }
+    .index ul { flex-direction: column; gap: 10px; margin-top: 10px; }
+    .title { justify-content: center; align-items: center; height: 25vh; padding: 0 20px 20px 20px; }
+    .title h1 { font-size: 32px; text-align: center; }
+    .content { flex-direction: column; align-items: center; }
+    .left img, .right p.font-1 { max-width: 100%; }
 }
