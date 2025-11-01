@@ -1,144 +1,83 @@
-/* ===================== 基本重設 ===================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    padding:0;
+    margin:0;
 }
-
-/* ===================== 全站背景與字體 ===================== */
-body {
-    background-color: #5f473a; /* 統一背景色 */
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #FEF7E6; /* 預設文字米色 */
-}
-
-/* ===================== 導覽列 ===================== */
-header, .index {
-    background-color: #5f473a; 
-    height: 80px;
-    width: 100%;
+.index {
+    background-color: #5f473a;
+    height:45px;
+    width:100%;
     position: fixed;
-    top: 0;
-    left: 0;
     z-index: 1000;
 }
-
-header h1, .index a.logo {
-    color: #FEF7E6;
+.index a.logo {
+    color:white;
     font-size: 20px;
-    font-weight: bold;
-    position: absolute;
+    font-weight: bolder;
+    position:absolute;
     left: 80px;
-    top: 0;
-    line-height: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
 }
-
-header h1:hover, .index a.logo:hover {
-    color: #ffffff;
-}
-
-header ul, .index ul {
-    position: absolute;
-    right: 5vw;
-    top: 0;
-    line-height: 80px;
-}
-
-header li, .index li {
-    display: inline-block;
-    margin-right: 4vw;
-}
-
-header a, .index a {
-    color: #FEF7E6;
+.index a.logo:hover {
+    color:#f4e8d5;
+    position:absolute;
+    left: 80px;
+    top:0;
+    line-height: 45px;
     text-decoration: none;
 }
-
-header a:hover, .index a:hover {
+.index ul {
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:45px;
+}
+.index li {
+    display:inline;
+    margin-right:4vw;    
+}
+.index ul a {
+    color:white;
+    text-decoration: none;
+}
+.index ul a:hover {
     text-decoration: underline;
 }
-
-/* ===================== 主要內容區 ===================== */
-main, .news-list, .members-content, .story-content, .plclass-content, .welfare-content, 
-.news-list-content, .members-list-content, .story-list-content {
-    background-color: #5f473a !important; /* 強制統一背景色，覆蓋其他白色 */
-    color: #FEF7E6 !important;
-    padding: 40px 10vw;
-}
-
-/* ===================== 表格響應式 ===================== */
-.table-container {
-    overflow-x: auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #5f473a !important;
-    color: #FEF7E6 !important;
-}
-
-/* ===================== 圖片自動縮放 ===================== */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ===================== 標題區 ===================== */
-.title {
+.title{
     height: 30vh;
-    background-size: cover;
+    background-image: url("image/instruments.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
     background-position: center;
-    margin-top: 80px; /* 避免被固定 header 遮住 */
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10vw;
-    background-color: #5f473a; /* 若圖片透明或缺失，保持統一背景 */
 }
-
-.title h1 {
-    color: #FEF7E6;
-    text-shadow: #000000 0.1em 0.1em 0.2em;
+.title h1{
+    color:white;
+    text-shadow: #5f473a 0.1em 0.1em 0.2em;
+    position:absolute;
+    right: 60px;
+    top: 75px;
+    line-height: 80px;
     font-size: 60px;
-    text-align: right;
 }
-
-/* ===================== Footer ===================== */
-footer {
-    background-color: #000000;
-    color: #B7B7B7;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
+main{
+    background-color: #f4e8d5;
+    padding: 10px 200px;
 }
-
-/* ===================== 手機響應式 ===================== */
-@media (max-width: 768px) {
-    header h1, .index a.logo {
-        left: 20px;
-        font-size: 16px;
-        line-height: 60px;
-    }
-
-    header ul, .index ul {
-        right: 20px;
-    }
-
-    main, .news-list, .members-content, .story-content, .plclass-content, .welfare-content, 
-    .news-list-content, .members-list-content, .story-list-content {
-        padding: 20px 5vw;
-    }
-
-    .title h1 {
-        font-size: 40px;
-    }
-
-    .table-container {
-        overflow-x: auto;
-    }
+.news-list{
+    border-color: #5f473a;
+    border: 3px;
+    line-height: 2;
+}
+.news-list-content{
+    padding: 30px;
+}
+.news-list-content h2{
+    background-color: #c3b193;
+    color: #5f473a;
+    border-radius: 30px;
+    padding: 3px 20px;
+}
+.news-list-content p{
+    margin-left: 40px;
 }
