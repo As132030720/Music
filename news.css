@@ -1,128 +1,191 @@
-/* 基本重設 */
+/* 🎵 全站基本重設 */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: "Noto Sans TC", sans-serif;
 }
 
-/* 導覽列 */
+/* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height: 45px;
+    height: 50px;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
 }
 
 .index a.logo {
     color: white;
-    font-size: 20px;
-    font-weight: bolder;
-    position: absolute;
-    left: 80px;
-    top: 0;
-    line-height: 45px;
+    font-size: 22px;
+    font-weight: bold;
     text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .index a.logo:hover {
     color: #f4e8d5;
 }
 
-.index ul {
-    position: absolute;
-    right: 5vw;
-    top: 0;
-    line-height: 45px;
+.index nav ul {
+    list-style: none;
 }
 
-.index li {
-    display: inline;
-    margin-right: 4vw;
+.index nav li {
+    display: inline-block;
+    margin-left: 3vw;
 }
 
-.index ul a {
+.index nav a {
     color: white;
     text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-.index ul a:hover {
+.index nav a:hover {
+    color: #f4e8d5;
     text-decoration: underline;
 }
 
-/* 標題區 */
+/* 🎵 標題區 */
 .title {
-    height: 30vh;
-    background-image: url("image/instruments.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    margin-top: 45px; /* 避免被固定導覽列遮住 */
+    height: 35vh;
+    background: url("image/instruments.jpg") center/cover no-repeat;
+    margin-top: 50px; /* 避開固定導覽列 */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .title h1 {
     color: white;
-    text-shadow: #5f473a 0.1em 0.1em 0.2em;
     font-size: 60px;
-    text-align: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: rgba(95, 71, 58, 0.4);
+    padding: 10px 30px;
+    border-radius: 15px;
 }
 
-/* 主要內容區 */
+/* 🎵 主內容 */
 main {
     background-color: #f4e8d5;
-    padding: 40px 10vw;
+    padding: 60px 10vw;
 }
 
-/* 新聞列表 */
+/* 🎵 新聞列表 */
 .news-list {
-    border: 3px solid #5f473a;
-    border-radius: 10px;
-    padding: 20px;
     background-color: #fffdf8;
+    border: 3px solid #5f473a;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(95, 71, 58, 0.2);
+    overflow: hidden;
 }
 
 .news-list-content {
-    padding: 30px;
+    padding: 40px 30px;
 }
 
 .news-list-content h2 {
     background-color: #c3b193;
     color: #5f473a;
-    border-radius: 30px;
-    padding: 5px 20px;
+    border-radius: 25px;
+    padding: 8px 20px;
     display: inline-block;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
 .news-list-content p {
-    margin-left: 20px;
-    line-height: 1.8;
+    margin-top: 10px;
+    margin-left: 10px;
+    line-height: 1.9;
     color: #3c2e26;
+    font-size: 16px;
 }
 
+/* 🎵 分隔線 */
 hr {
     border: none;
-    border-top: 2px solid #c3b193;
-    margin: 20px 0;
+    border-top: 2px dashed #c3b193;
+    margin: 10px 5%;
 }
 
-/* RWD 響應式設計 */
-@media (max-width: 768px) {
-    .index a.logo {
-        left: 20px;
-        font-size: 16px;
-    }
-    .index ul {
-        right: 20px;
-    }
-    main {
-        padding: 20px 5vw;
-    }
+/* 🎵 頁尾 */
+footer {
+    text-align: center;
+    background-color: #5f473a;
+    color: #f4e8d5;
+    padding: 20px 0;
+    font-size: 14px;
+    margin-top: 50px;
+}
+
+/* 🎵 RWD 響應式設計 */
+@media (max-width: 992px) {
     .title h1 {
-        font-size: 40px;
+        font-size: 48px;
+    }
+
+    .news-list-content {
+        padding: 30px 20px;
+    }
+
+    .news-list-content h2 {
+        font-size: 20px;
+    }
+
+    main {
+        padding: 40px 5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .index {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .index nav li {
+        display: block;
+        margin: 8px 0;
+        text-align: center;
+    }
+
+    .index nav a {
+        font-size: 15px;
+    }
+
+    .title h1 {
+        font-size: 38px;
+        padding: 10px 20px;
+    }
+
+    .news-list-content p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+}
+
+@media (max-width: 480px) {
+    .title h1 {
+        font-size: 30px;
+    }
+
+    .news-list-content h2 {
+        font-size: 18px;
+        padding: 6px 15px;
+    }
+
+    footer {
+        font-size: 12px;
     }
 }
