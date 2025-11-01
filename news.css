@@ -8,7 +8,7 @@
 /* 🎵 導覽列 */
 .index {
     background-color: #5f473a;
-    height:60px; /* 提高高度，確保文字完全顯示 */
+    height:60px; /* 提高高度，文字完整顯示 */
     width:100%;
     position: fixed;
     top:0;
@@ -20,7 +20,7 @@
 
 .index a.logo {
     color:white;
-    font-size: 22px; /* 加大字體 */
+    font-size: 22px;
     font-weight: bolder;
     text-decoration: none;
 }
@@ -69,30 +69,24 @@
 /* 🎵 主內容 */
 main {
     background-color: #f4e8d5;
-    padding: 60px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 40px 200px;
+    line-height: 2;
 }
 
 /* 🎵 新聞列表 */
 .news-list {
-    width: 80%;
+    width: 100%;
     max-width: 1000px;
+    margin: auto;
 }
 
 .news-list-content {
+    background-color: #fff9f0;
     padding: 30px 40px;
     margin-bottom: 40px;
-    text-align: left; /* 整個內容靠左 */
-    background-color: #fff9f0;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.news-list-content:hover {
-    transform: translateY(-5px);
+    text-align: left; /* 全部靠左 */
 }
 
 .news-list-content h2 {
@@ -101,15 +95,13 @@ main {
     border-radius: 25px;
     padding: 8px 20px;
     display: inline-block;
-    font-size: 30px;
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
 .news-list-content p {
-    margin-top: 10px;
-    line-height: 1.8;
-    color: #3c2e26;
     font-size: 18px;
+    color: #3c2e26;
 }
 
 /* 🎵 分隔線 */
