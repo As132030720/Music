@@ -9,7 +9,7 @@
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Sans TC', sans-serif; }
 body { background-color: #f4e8d5; color:#333; }
 
-/* ---------- Header ---------- */
+/* ---------- Header / Title ---------- */
 .index {
     background-color: #5f473a;
     height:60px;
@@ -31,7 +31,6 @@ body { background-color: #f4e8d5; color:#333; }
 }
 .index nav ul li a:hover { text-decoration: underline; }
 
-/* ---------- Title ---------- */
 .title {
     height: 35vh;
     background-image: url("image/instruments.jpg");
@@ -238,16 +237,15 @@ footer {
 </footer>
 
 <script>
-// 音符生成優化：滑鼠 hover 表單內部
+// 高階小音符互動
 const form = document.querySelector('.member-form');
 form.addEventListener('mousemove', e=>{
     const note = document.createElement('span');
     note.className = 'music-note';
     note.style.left = e.offsetX + 'px';
     note.style.top = e.offsetY + 'px';
-    note.style.transform = `rotate(${Math.random()*360}deg)`;
+    note.style.transform = `rotate(${Math.random()*360}deg) scale(${0.8 + Math.random()*0.5})`;
     form.appendChild(note);
-
     setTimeout(()=> note.remove(), 1000);
 });
 </script>
