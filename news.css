@@ -123,12 +123,9 @@ footer {
     color: #B7B7B7;
     height: 40px;
     display: flex;
-    justify-content: center; /* 水平置中 */
-    align-items: center;     /* 垂直置中 */
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
-    text-align: center;
-    padding: 0 10px;
-    box-sizing: border-box;
 }
 
 /* 🎵 RWD 響應式設計 */
